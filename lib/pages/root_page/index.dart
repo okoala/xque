@@ -60,6 +60,13 @@ class RootPageState extends State<RootPage> {
             tabIdx = index;
           });
         },
+        border: Border(
+          top: BorderSide(
+            color: Color(0x66000000),
+            width: 0.1, // One physical pixel.
+            style: BorderStyle.solid,
+          ),
+        ),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: getTabIcon(0), title: Text('语雀')),
           BottomNavigationBarItem(icon: getTabIcon(1), title: Text('文档')),
