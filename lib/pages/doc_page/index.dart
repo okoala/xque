@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:yuque/config/theme.dart';
 
 class DocPage extends StatefulWidget {
   DocPage({Key key, this.title}) : super(key: key);
@@ -43,6 +43,7 @@ class DocPageState extends State<DocPage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: YQColor.primary1,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text('语雀'),
@@ -78,6 +79,7 @@ class DocPageState extends State<DocPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: YQColor.primary1,
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
