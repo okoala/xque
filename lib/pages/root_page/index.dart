@@ -8,6 +8,10 @@ import 'package:yuque/pages/doc_page/index.dart';
 import 'package:yuque/pages/me_page/index.dart';
 
 class RootPage extends StatefulWidget {
+  final String name;
+
+  RootPage(this.name);
+
   @override
   State<StatefulWidget> createState() => RootPageState();
 }
@@ -27,6 +31,12 @@ class RootPageState extends State<RootPage> {
     Image.asset('assets/images/me-light.png'),
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    getTabIdxByName(widget.name);
+  }
+
   Image getTabIcon(int index) {
     if (index == tabIdx) {
       return tabSelectedImages[index];
@@ -35,9 +45,20 @@ class RootPageState extends State<RootPage> {
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
+  void getTabIdxByName(name) {
+    switch (name) {
+      case 'yuque':
+        tabIdx = 0;
+        break;
+      case 'doc':
+        tabIdx = 1;
+        break;
+      case 'me':
+        tabIdx = 2;
+        break;
+      default:
+        tabIdx = 0;
+    }
   }
 
   @override

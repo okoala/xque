@@ -5,7 +5,7 @@ class WebViewPage extends StatefulWidget {
   final String url;
   final String title;
 
-  WebViewPage({this.url, this.title});
+  WebViewPage(this.url, this.title);
 
   WebViewPageState createState() => WebViewPageState();
 }
