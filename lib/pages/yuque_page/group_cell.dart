@@ -37,7 +37,7 @@ class GroupCell extends StatelessWidget {
                   Column(                                    //单条消息记录，昵称和消息内容垂直排列
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(this.title, style: TextStyle(color: YQColor.grey2, fontSize: 18)),
+                      Text(this.title, style: TextStyle(color: YQColor.grey2, fontSize: 18, fontWeight: FontWeight.w500)),
                       Container(
                         margin: EdgeInsets.only(top: 4.0),
                         child: Text(this.doctitle, style: TextStyle(color: YQColor.grey4, fontSize: 16),),                    //消息文字
@@ -48,8 +48,8 @@ class GroupCell extends StatelessWidget {
               )
             ),
             Container(
-              height: 1,
-              color: YQColor.grey7,
+              height: 0.5,
+              color: YQColor.grey5,
               margin: EdgeInsets.only(left: 86),
             ),
           ],

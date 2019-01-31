@@ -10,7 +10,7 @@ class SearchInput extends StatelessWidget {
             color: YQColor.grey7,
             borderRadius: BorderRadius.circular(4.0)),
       child: Container(
-        height: 40.0,
+        height: 35.0,
         alignment: Alignment.center,
         margin: EdgeInsets.all(10.0),
         padding: EdgeInsets.only(right: 10.0, top: 3.0, left: 10.0),
@@ -21,8 +21,8 @@ class SearchInput extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.search, size: 23.0, color: YQColor.grey4),
-            Text('搜索', style: TextStyle(fontSize: 18, color: YQColor.grey4),),
+            Icon(Icons.search, size: 20.0, color: YQColor.grey3),
+            Text('搜索', style: TextStyle(fontSize: 17, color: YQColor.grey3),),
           ],
         ),
       )
