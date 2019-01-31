@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:yuque/config/theme.dart';
 import 'package:yuque/components/search_input.dart';
+import 'package:yuque/pages/yuque_page/group_cell.dart';
 
 class YuquePage extends StatefulWidget {
   YuquePage({Key key, this.title}) : super(key: key);
@@ -22,19 +23,6 @@ class YuquePage extends StatefulWidget {
 }
 
 class YuquePageState extends State<YuquePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -53,7 +41,14 @@ class YuquePageState extends State<YuquePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text('语雀'),
       ),
-      body: SearchInput(),
+      body: Container(
+        child: ListView(
+          children: [
+            SearchInput(),
+            GroupCell()
+          ]
+        )
+      ),
     );
   }
 }

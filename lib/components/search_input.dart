@@ -12,7 +12,7 @@ class SearchInput extends StatelessWidget {
       child: Container(
         height: 40.0,
         alignment: Alignment.center,
-        margin: EdgeInsets.only(right: 10.0, bottom: 10.0, left: 10.0),
+        margin: EdgeInsets.all(10.0),
         padding: EdgeInsets.only(right: 10.0, top: 3.0, left: 10.0),
         decoration: BoxDecoration(
             color: Colors.white,
