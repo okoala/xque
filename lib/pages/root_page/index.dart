@@ -52,7 +52,7 @@ class RootPageState extends State<RootPage> {
         index: tabIdx,
       ),
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: Colors.white,
+        backgroundColor: YQColor.grey6,
         activeColor: YQColor.primary1,
         currentIndex: tabIdx,
         onTap: (index) {

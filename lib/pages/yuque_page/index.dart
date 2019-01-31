@@ -45,7 +45,7 @@ class YuquePageState extends State<YuquePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: YQColor.grey7,
         brightness: Brightness.light,
         textTheme: TextTheme(title: TextStyle(color: YQColor.grey1, fontSize: 18, fontWeight: FontWeight.w500)),
         elevation: 0.0,
