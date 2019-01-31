@@ -2,7 +2,9 @@
 
 这个是非官方语雀客户端项目
 
-<p align="center"><img width="200" src="https://github.com/okoala/yuque/blob/master/20190131114611.png"></p>
+
+<p align="center"><img width="200" src="https://raw.githubusercontent.com/okoala/yuque/master/screenshot/20190131114611.png"></p>
+
 
 ## Getting Started
 
