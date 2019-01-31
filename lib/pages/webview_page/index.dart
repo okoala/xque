@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
+import '../../config/application.dart';
+
 class WebViewPage extends StatefulWidget {
   final String url;
   final String title;
@@ -27,6 +29,7 @@ class WebViewPageState extends State<WebViewPage> {
       ),
       body: WebviewScaffold(
         url: widget.url,
+        userAgent: Application.yuque['useragent'],
         withZoom: false,
         withJavascript: true,
         withLocalStorage: true,
