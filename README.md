@@ -3,7 +3,7 @@
 这个是非官方语雀客户端项目
 
 
-<p align="center"><img width="300" src="https://raw.githubusercontent.com/okoala/yuque/master/screenshot/20190131202113.png"></p>
+<p align="center"><img width="300" src="https://raw.githubusercontent.com/okoala/yuque/master/screenshot/20190131202417.png"></p>
 
 
 ## Getting Started
