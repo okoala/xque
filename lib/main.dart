@@ -4,7 +4,17 @@ import 'package:fluro/fluro.dart';
 import './config/application.dart';
 import './config/routes.dart';
 
-void main() => runApp(YuqueApp());
+import './services/provider.dart';
+
+var db;
+
+void main() async {
+  final provider = new Provider();
+  await provider.init();
+  db = Provider.db;
+
+  runApp(YuqueApp());
+}
 
 class YuqueApp extends StatefulWidget {
   // This widget is the root of your application.
