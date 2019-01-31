@@ -45,7 +45,12 @@ class YuquePageState extends State<YuquePage> {
         child: ListView(
           children: [
             SearchInput(),
-            GroupCell()
+            GroupCell(title: '我的消息', doctitle: '仙森邀请你来体验新APP',
+            iconColor: YQColor.primary1,
+            iconUrl: ClipOval(child:Image.asset('assets/images/notice.png'))),
+            GroupCell(title: 'Egg.js 团队', doctitle: 'https://eggjs.org', iconUrl: ClipOval(child: Image.network('https://lark-assets-prod.oss-cn-hangzhou.aliyuncs.com/2017/png/avatar/5a143e30-d777-4c45-9105-dd2abf33fd07.png?x-oss-process=image/resize,m_fill,w_112,h_112/format,png', fit: BoxFit.cover,))),
+            GroupCell(title: '关注的消息', doctitle: '语雀: 深入浅出语雀编辑器',
+            iconColor: YQColor.blue2, iconUrl: ClipOval(child: Image.asset('assets/images/notice.png', fit: BoxFit.cover,))),
           ]
         )
       ),

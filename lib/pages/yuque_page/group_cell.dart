@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:yuque/config/theme.dart';
 
 class GroupCell extends StatelessWidget {
+
   final VoidCallback onPressed;
-  final String iconUrl;
+  final ClipOval iconUrl;
+  final Color iconColor;
   final String title;
   final String doctitle;
 
-  GroupCell({this.iconUrl, this.title, this.doctitle, this.onPressed});
+  GroupCell({this.iconUrl, this.iconColor, this.title, this.doctitle, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +30,17 @@ class GroupCell extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 5.0),
                     child: CircleAvatar(
                       radius: 35.0,
-                      backgroundColor: YQColor.primary1,
-                      child: Image.asset('assets/images/notice.png'),
+                      backgroundColor: this.iconColor,
+                      child: this.iconUrl,
                     )
                   ),
                   Column(                                    //单条消息记录，昵称和消息内容垂直排列
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('我的消息', style: TextStyle(color: YQColor.grey2, fontSize: 18)),
+                      Text(this.title, style: TextStyle(color: YQColor.grey2, fontSize: 18)),
                       Container(
                         margin: EdgeInsets.only(top: 4.0),
-                        child: Text('仙森邀请你来体验新APP', style: TextStyle(color: YQColor.grey4, fontSize: 16),),                    //消息文字
+                        child: Text(this.doctitle, style: TextStyle(color: YQColor.grey4, fontSize: 16),),                    //消息文字
                       ),
                     ],
                   ),
@@ -47,8 +49,8 @@ class GroupCell extends StatelessWidget {
             ),
             Container(
               height: 1,
-              color: Colors.white70,
-              margin: EdgeInsets.only(left: 60),
+              color: YQColor.grey7,
+              margin: EdgeInsets.only(left: 86),
             ),
           ],
         )
