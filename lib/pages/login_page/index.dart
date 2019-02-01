@@ -43,7 +43,7 @@ class LoginPageState extends State<LoginPage> {
       ),
       backgroundColor: YQColor.grey7,
       body: Container(
-        padding: EdgeInsets.only(left: 10, right: 10, top: 200, bottom: 10),
+        padding: EdgeInsets.only(left: 10, right: 10, top: 180, bottom: 10),
         child: Column(
           children: <Widget>[
             Center(
