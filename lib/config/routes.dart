@@ -23,8 +23,8 @@ class Routes {
     router.define(yuque, handler: yuqueHandler);
     router.define(doc, handler: docHandler);
     router.define(me, handler: meHandler);
-    router.define(login, handler: loginHandler);
-    router.define(webview, handler: webviewHandler);
+    router.define(login, handler: loginHandler, transitionType: TransitionType.inFromRight);
+    router.define(webview, handler: webviewHandler, transitionType: TransitionType.inFromRight);
     router.define(deeplink, handler: deeplinkHandler);
   }
 }

@@ -41,7 +41,7 @@ class LoginPageState extends State<LoginPage> {
             child: Column(
               children: <Widget>[
                 Center(
-                  child: Image.asset('assets/images/yuque-logo.png', width: 50, height: 50, fit: BoxFit.cover,)
+                  child: Image.asset('assets/images/yuque-logo.png', width: 60, height: 60, fit: BoxFit.cover,)
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 20),
