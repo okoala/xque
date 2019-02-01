@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:yuque/config/theme.dart';
 import 'package:yuque/config/application.dart';
 import 'package:yuque/config/routes.dart';
@@ -42,70 +43,78 @@ class LoginPageState extends State<LoginPage> {
         )
       ),
       backgroundColor: YQColor.grey7,
+      resizeToAvoidBottomPadding: true,
       body: Container(
-        padding: EdgeInsets.only(left: 10, right: 10, top: 180, bottom: 10),
-        child: Column(
-          children: <Widget>[
-            Center(
-              child: Image.asset('assets/images/yuque-logo.png', width: 80, height: 80, fit: BoxFit.cover,)
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 20),
-              child: Text('欢迎回来', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 20.0),
-              padding: EdgeInsets.all(40.0),
-              child: Form(
-                key: this._formKey,
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.all(5.0),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(width: 0.5, color: YQColor.grey5)
-                        )
-                      ),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: '请输入 Token',
-                          border: InputBorder.none,
+        padding: EdgeInsets.only(left: 10, right: 10, top: 100, bottom: 10),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Center(
+                child: Image.asset('assets/images/yuque-logo.png', width: 50, height: 50, fit: BoxFit.cover,)
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Text('欢迎回来', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20.0),
+                padding: EdgeInsets.all(40.0),
+                child: Form(
+                  key: this._formKey,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(width: 0.5, color: YQColor.grey5)
+                          )
                         ),
-                        onSaved: (String value) {
-                          this.token = value;
-                        }
+                        child: CupertinoTextField(
+                          placeholder: '请输入 Token',
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 0.1,
+                              color: YQColor.grey7
+                            ),
+                          ),
+                          onSubmitted: (String value) {
+                            this.token = value;
+                          }
+                        ),
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(5.0),
-                      alignment: Alignment.centerLeft,
-                      child: InkWell(
-                        child: new Text('点击通过页面快速获取 Token', style: TextStyle(color: YQColor.blue1),),
-                        onTap: this.openSettingPage
+                      Container(
+                        margin: EdgeInsets.all(5.0),
+                        alignment: Alignment.centerLeft,
+                        child: InkWell(
+                          child: new Text('点击通过页面快速获取 Token', style: TextStyle(color: YQColor.blue1),),
+                          onTap: this.openSettingPage
+                        ),
                       ),
-                    ),
-                    Container(
-                      width: 325,
-                      height: 58,
-                      margin: EdgeInsets.only(top: 30.0),
-                      child: GestureDetector(
-                        onTapUp: this.submit,
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints.expand(),
-                          child: Image.asset(
-                            'assets/images/login-enable.png',
-                            fit: BoxFit.fill,
-                            gaplessPlayback: true
+                      Container(
+                        width: 325,
+                        height: 58,
+                        margin: EdgeInsets.only(top: 30.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4.0)
+                        ),
+                        child: GestureDetector(
+                          onTapUp: this.submit,
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints.expand(),
+                            child: Image.asset(
+                              'assets/images/login-enable.png',
+                              fit: BoxFit.cover,
+                              gaplessPlayback: true
+                            )
                           )
                         )
                       )
-                    )
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          )
         )
       )
     );
