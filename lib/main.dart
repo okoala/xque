@@ -4,6 +4,7 @@ import 'package:fluro/fluro.dart';
 import 'package:yuque/config/application.dart';
 import 'package:yuque/config/routes.dart';
 import 'package:yuque/services/db.dart';
+import 'package:yuque/services/token.dart';
 
 var db;
 
@@ -12,10 +13,21 @@ void main() async {
   await provider.init();
   db = DBService.db;
 
-  runApp(YuqueApp());
+  var initRoute = '/';
+
+  final token = await Token().getToken();
+  if (token == null) {
+    initRoute = 'login';
+  }
+
+  runApp(YuqueApp(initRoute));
 }
 
 class YuqueApp extends StatefulWidget {
+  final String initRoute;
+
+  YuqueApp(this.initRoute);
+
   // This widget is the root of your application.
   @override
   State createState() => YuqueAppState();
@@ -33,7 +45,7 @@ class YuqueAppState extends State<YuqueApp> {
     final app = MaterialApp(
       title: '语雀',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: widget.initRoute,
       onGenerateRoute: Application.router.generator,
     );
 

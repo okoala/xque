@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 
 import 'package:yuque/pages/root_page/index.dart';
+import 'package:yuque/pages/login_page/index.dart';
 import 'package:yuque/pages/webview_page/index.dart';
 import 'package:yuque/helpers/color_helpers.dart';
 import 'package:yuque/components/demo.dart';
@@ -22,6 +23,11 @@ var docHandler = new Handler(handlerFunc: (BuildContext context, Map<String, Lis
 var meHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return new RootPage('me');
 });
+
+var loginHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return new LoginPage();
+});
+
 
 var webviewHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {

@@ -8,6 +8,7 @@ class Routes {
   static String yuque = "/yuque";
   static String doc = "/doc";
   static String me = "/me";
+  static String login = '/login';
   static String webview = '/webview';
   static String deeplink = "/message";
 
@@ -22,6 +23,7 @@ class Routes {
     router.define(yuque, handler: yuqueHandler);
     router.define(doc, handler: docHandler);
     router.define(me, handler: meHandler);
+    router.define(login, handler: loginHandler);
     router.define(webview, handler: webviewHandler);
     router.define(deeplink, handler: deeplinkHandler);
   }

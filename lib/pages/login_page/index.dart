@@ -12,7 +12,8 @@ class LoginPageState extends State<LoginPage> {
       children: <Widget>[
         Container(
           child: Image.asset('assets/images/yuque-light.png')
-        )
+        ),
+        Text('hello world')
       ],
     );
   }

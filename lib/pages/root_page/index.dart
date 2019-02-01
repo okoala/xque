@@ -1,13 +1,22 @@
 import "package:flutter/material.dart";
 import 'package:flutter/cupertino.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:yuque/config/theme.dart';
-
 import 'package:yuque/pages/yuque_page/index.dart';
 import 'package:yuque/pages/doc_page/index.dart';
 import 'package:yuque/pages/me_page/index.dart';
-import 'package:yuque/config/application.dart';
+
+List<Image> tabImages = [
+  Image.asset('assets/images/yuque-grey.png'),
+  Image.asset('assets/images/doc-grey.png'),
+  Image.asset('assets/images/me-grey.png'),
+];
+
+List<Image> tabSelectedImages = [
+  Image.asset('assets/images/yuque-light.png'),
+  Image.asset('assets/images/doc-light.png'),
+  Image.asset('assets/images/me-light.png'),
+];
 
 class RootPage extends StatefulWidget {
   final String name;
@@ -19,25 +28,12 @@ class RootPage extends StatefulWidget {
 }
 
 class RootPageState extends State<RootPage> {
-  Future<SharedPreferences> store = SharedPreferences.getInstance();
   int tabIdx = 0;
-
-  List<Image> tabImages = [
-    Image.asset('assets/images/yuque-grey.png'),
-    Image.asset('assets/images/doc-grey.png'),
-    Image.asset('assets/images/me-grey.png'),
-  ];
-
-  List<Image> tabSelectedImages = [
-    Image.asset('assets/images/yuque-light.png'),
-    Image.asset('assets/images/doc-light.png'),
-    Image.asset('assets/images/me-light.png'),
-  ];
 
   @override
   void initState() {
     super.initState();
-    getTabIdxByName(widget.name);
+    tabIdx = getTabIdxByName(widget.name);
   }
 
   Image getTabIcon(int index) {
@@ -48,19 +44,16 @@ class RootPageState extends State<RootPage> {
     }
   }
 
-  void getTabIdxByName(name) {
+  int getTabIdxByName(name) {
     switch (name) {
       case 'yuque':
-        tabIdx = 0;
-        break;
+        return 0;
       case 'doc':
-        tabIdx = 1;
-        break;
+        return 1;
       case 'me':
-        tabIdx = 2;
-        break;
+        return 2;
       default:
-        tabIdx = 0;
+        return 0;
     }
   }
 
