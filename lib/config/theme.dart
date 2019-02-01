@@ -14,4 +14,5 @@ class YQColor {
   static Color grey7 = Color(0xFFEDEDED);
   static Color blue1 = Color(0xFF3F6CA6);
   static Color blue2 = Color(0xFF2781D7);
+  static Color blue3 = Color(0xFF596D96);
 }

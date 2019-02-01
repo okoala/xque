@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yuque/config/theme.dart';
+import 'package:yuque/config/application.dart';
+import 'package:yuque/config/routes.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -14,6 +17,13 @@ class LoginPageState extends State<LoginPage> {
     if (this._formKey.currentState.validate()) {
 
     }
+  }
+
+  void openSettingPage() {
+    final String title = "语雀 Token 页面";
+    final String url = Application.yuque["settingTokenUrl"];
+
+    Application.router.navigateTo(context, "${Routes.webview}?title=${Uri.encodeComponent(title)}&url=${Uri.encodeComponent(url)}");
   }
 
   @override
@@ -56,7 +66,14 @@ class LoginPageState extends State<LoginPage> {
                         }
                       ),
                     ),
-
+                    Container(
+                      margin: EdgeInsets.all(5.0),
+                      alignment: Alignment.centerLeft,
+                      child: InkWell(
+                        child: new Text('点击通过页面快速获取 Token', style: TextStyle(color: YQColor.blue1),),
+                        onTap: this.openSettingPage
+                      ),
+                    ),
                     Container(
                       width: 325,
                       height: 58,
