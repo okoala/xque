@@ -31,6 +31,17 @@ class LoginPageState extends State<LoginPage> {
     // final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(0.0),
+        child: AppBar(
+          backgroundColor: YQColor.grey7,
+          brightness: Brightness.light,
+          textTheme: TextTheme(title: TextStyle(color: YQColor.grey1, fontSize: 18, fontWeight: FontWeight.w500)),
+          elevation: 0.0,
+          title: Text('语雀'),
+        )
+      ),
+      backgroundColor: YQColor.grey7,
       body: Container(
         padding: EdgeInsets.only(left: 10, right: 10, top: 200, bottom: 10),
         child: Column(
