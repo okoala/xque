@@ -1,5 +1,4 @@
-import '../helpers/urllib_helpers.dart';
-import '../config/application.dart';
+import 'package:yuque/helpers/urllib_helpers.dart';
 
 class ApiService {
   Future ping() async {
