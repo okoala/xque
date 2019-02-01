@@ -2,10 +2,10 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 
-import '../pages/root_page/index.dart';
-import '../pages/webview_page/index.dart';
-import '../helpers/color_helpers.dart';
-import '../components/demo.dart';
+import 'package:yuque/pages/root_page/index.dart';
+import 'package:yuque/pages/webview_page/index.dart';
+import 'package:yuque/helpers/color_helpers.dart';
+import 'package:yuque/components/demo.dart';
 
 var rootHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return new RootPage('yuque');

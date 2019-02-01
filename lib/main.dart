@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 
-import './config/application.dart';
-import './config/routes.dart';
-
-import './services/provider.dart';
+import 'package:yuque/config/application.dart';
+import 'package:yuque/config/routes.dart';
+import 'package:yuque/services/db.dart';
 
 var db;
 
 void main() async {
-  final provider = new Provider();
+  final provider = new DBService();
   await provider.init();
-  db = Provider.db;
+  db = DBService.db;
 
   runApp(YuqueApp());
 }

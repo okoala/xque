@@ -1,11 +1,13 @@
 import "package:flutter/material.dart";
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:yuque/config/theme.dart';
 
 import 'package:yuque/pages/yuque_page/index.dart';
 import 'package:yuque/pages/doc_page/index.dart';
 import 'package:yuque/pages/me_page/index.dart';
+import 'package:yuque/config/application.dart';
 
 class RootPage extends StatefulWidget {
   final String name;
@@ -17,6 +19,7 @@ class RootPage extends StatefulWidget {
 }
 
 class RootPageState extends State<RootPage> {
+  Future<SharedPreferences> store = SharedPreferences.getInstance();
   int tabIdx = 0;
 
   List<Image> tabImages = [

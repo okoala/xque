@@ -1,7 +1,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-class Provider {
+class DBService {
   static Database db;
 
   // 获取数据中所有的表

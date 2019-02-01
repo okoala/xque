@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:yuque/config/theme.dart';
 
 class SearchInput extends StatelessWidget {
