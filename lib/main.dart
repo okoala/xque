@@ -15,7 +15,7 @@ void main() async {
 
   var initRoute = '/';
 
-  final token = await Token().getToken();
+  final token = await Token.getToken();
   if (token == null) {
     initRoute = 'login';
   }

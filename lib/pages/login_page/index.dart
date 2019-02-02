@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:yuque/config/theme.dart';
 import 'package:yuque/config/application.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:yuque/services/dialog.dart';
+import 'package:yuque/services/token.dart';
+import 'package:yuque/services/api.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -14,7 +17,20 @@ class LoginPageState extends State<LoginPage> {
   String token;
 
   void submit() {
-    print(this._formKey.currentState);
+    print(this.token);
+    if (this.token == '' || this.token == null) {
+      showTokenErrorDialog(context);
+    } else {
+      ApiService.ping(token).then((res) {
+        if (res != null && res['data']['message'] != null) {
+          Token.setToken(token).then((res) {
+            Application.router.navigateTo(context, '/yuque');
+          });
+        } else {
+          showTokenErrorDialog(context);
+        }
+      });
+    }
   }
 
   void openSettingPage() {
