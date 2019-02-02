@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:fluro/fluro.dart';
 import 'package:yuque/config/theme.dart';
 import 'package:yuque/config/application.dart';
-import 'package:yuque/config/routes.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -22,10 +20,9 @@ class LoginPageState extends State<LoginPage> {
   }
 
   void openSettingPage() {
-    final String title = "语雀 Token 页面";
     final String url = Application.yuque["settingTokenUrl"];
 
-    Application.router.navigateTo(context, "${Routes.webview}?title=${Uri.encodeComponent(title)}&url=${Uri.encodeComponent(url)}");
+    launch(url, forceWebView: true);
   }
 
   @override
