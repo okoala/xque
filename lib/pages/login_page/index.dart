@@ -13,10 +13,8 @@ class LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   String token;
 
-  void submit(TapUpDetails details) {
-    if (this._formKey.currentState.validate()) {
-
-    }
+  void submit() {
+    print(this._formKey.currentState);
   }
 
   void openSettingPage() {
@@ -100,22 +98,17 @@ class LoginPageState extends State<LoginPage> {
                         ),
                         Container(
                           width: 325,
-                          height: 58,
+                          height: 50,
                           margin: EdgeInsets.only(top: 30.0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4.0)
                           ),
-                          child: GestureDetector(
-                            onTapUp: this.submit,
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints.expand(),
-                              child: Image.asset(
-                                'assets/images/login-enable.png',
-                                fit: BoxFit.cover,
-                                gaplessPlayback: true
-                              )
-                            )
-                          )
+                          child: CupertinoButton(
+                            color: YQColor.primary1,
+                            pressedOpacity: 0.5,
+                            child: Text('登录'),
+                            onPressed: this.submit,
+                          ),
                         )
                       ],
                     ),
