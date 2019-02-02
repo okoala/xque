@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:fluro/fluro.dart';
 import 'package:yuque/config/theme.dart';
 import 'package:yuque/config/application.dart';
 import 'package:yuque/config/routes.dart';
@@ -55,33 +56,47 @@ class LoginPageState extends State<LoginPage> {
                     child: Column(
                       children: <Widget>[
                         Container(
+                          height: 34,
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(width: 0.5, color: YQColor.grey5)
                             )
                           ),
-                          child: CupertinoTextField(
-                            placeholder: '请输入 Token',
-                            style: TextStyle(fontWeight: FontWeight.w700, color: YQColor.grey1, fontSize: 20),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                width: 0.1,
-                                color: YQColor.grey7
+                          child: Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(right: 40.0),
+                                child: Text('TOKEN', style: TextStyle(
+                                  color: YQColor.grey1,
+                                  fontSize: 18
+                                ),)
                               ),
-                            ),
-                            onSubmitted: (String value) {
-                              this.token = value;
-                            }
-                          ),
+                              Expanded(
+                                child: CupertinoTextField(
+                                  placeholder: '请输入 Token',
+                                  padding: EdgeInsets.only(top: 6.0, bottom: 6.0),
+                                  style: TextStyle(fontWeight: FontWeight.w700, color: YQColor.grey1, fontSize: 18),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      width: 0.1,
+                                      color: YQColor.grey7
+                                    ),
+                                  ),
+                                  onSubmitted: (String value) {
+                                    this.token = value;
+                                  }
+                                )
+                              )
+                            ],
+                          )
                         ),
                         Container(
-                          margin: EdgeInsets.all(5.0),
                           alignment: Alignment.centerLeft,
                           child: CupertinoButton(
                             padding: EdgeInsets.zero,
                             child: Text(
                               '点击通过页面快速获取 Token',
-                              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: YQColor.blue1)
+                              style: TextStyle(fontSize: 15, color: YQColor.blue1)
                             ),
                             onPressed: this.openSettingPage,
                           ),
