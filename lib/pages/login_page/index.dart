@@ -21,9 +21,9 @@ class LoginPageState extends State<LoginPage> {
     if (this.token == '' || this.token == null) {
       showTokenErrorDialog(context);
     } else {
-      ApiService.ping(token).then((res) {
+      ApiService.ping(this.token).then((res) {
         if (res != null && res['data']['message'] != null) {
-          Token.setToken(token).then((res) {
+          Token.setToken(this.token).then((res) {
             Application.router.navigateTo(context, '/yuque');
           });
         } else {
@@ -93,7 +93,7 @@ class LoginPageState extends State<LoginPage> {
                                       color: YQColor.grey7
                                     ),
                                   ),
-                                  onSubmitted: (String value) {
+                                  onChanged: (String value) {
                                     this.token = value;
                                   }
                                 )
