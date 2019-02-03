@@ -34,7 +34,7 @@ class LoginPageState extends State<LoginPage> {
   }
 
   void openSettingPage() {
-    final String url = Application.yuque["settingTokenUrl"];
+    final String url = Application.yuque["tokenUrl"];
 
     launch(url, forceWebView: true);
   }

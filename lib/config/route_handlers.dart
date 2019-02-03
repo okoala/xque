@@ -6,7 +6,6 @@ import 'package:yuque/pages/root_page/index.dart';
 import 'package:yuque/pages/login_page/index.dart';
 import 'package:yuque/pages/webview_page/index.dart';
 import 'package:yuque/helpers/color_helpers.dart';
-import 'package:yuque/components/demo.dart';
 
 var rootHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return new RootPage('yuque');
@@ -45,7 +44,7 @@ var deeplinkHandler = new Handler(
     if (colorHex != null && colorHex.length > 0) {
       color = new Color(ColorHelpers.fromHexString(colorHex));
     }
-    return new Demo(
-        message: "DEEEEEP LINK!!!", color: color, result: result);
+    // return new Demo(
+    //     message: "DEEEEEP LINK!!!", color: color, result: result);
   }
 );
