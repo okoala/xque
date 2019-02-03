@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yuque/config/theme.dart';
 
+import 'package:yuque/components/cell/single_cell.dart';
+
 
 class MePage extends StatefulWidget {
   final String title;
@@ -12,40 +14,30 @@ class MePage extends StatefulWidget {
 }
 
 class MePageState extends State<MePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: YQColor.primary1,
-        title: Text('语雀'),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppBar(
+          backgroundColor: YQColor.grey7,
+          brightness: Brightness.light,
+          textTheme: TextTheme(title: TextStyle(color: YQColor.grey1, fontSize: 18, fontWeight: FontWeight.w500)),
+          elevation: 0.0,
+          title: Text('语雀'),
+        )
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        child: ListView(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            SingleCell(title: '支付',),
+            SingleCell(title: '收藏',),
+            SingleCell(title: '相册',),
+            SingleCell(title: '卡包',),
+            SingleCell(title: '表情',),
+            SingleCell(title: '设置',),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: YQColor.primary1,
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        )
       ),
     );
   }
