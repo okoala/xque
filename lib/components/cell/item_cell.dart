@@ -3,10 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:yuque/config/theme.dart';
 
 class ItemCell extends StatefulWidget {
-  ItemCell({ this.title, this.header, this.footer, this.isSingle, this.onTap });
+  ItemCell({ this.title, this.header, this.iconUrl, this.footer, this.isSingle, this.onTap });
 
   final String title;
   final Widget header;
+  final String iconUrl;
   final Widget footer;
   final bool isSingle;
   final Function onTap;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yuque/config/application.dart';
 import 'package:yuque/config/theme.dart';
 
 class AppScaffold extends StatelessWidget {
@@ -16,7 +17,7 @@ class AppScaffold extends StatelessWidget {
           brightness: Brightness.light,
           textTheme: TextTheme(title: TextStyle(color: YQColor.grey1, fontSize: 18, fontWeight: FontWeight.w500)),
           elevation: 0.0,
-          title: Text('语雀'),
+          title: Text(Application.yuque['name']),
         )
       ),
       body: this.body,
