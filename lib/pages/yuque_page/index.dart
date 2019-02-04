@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:yuque/config/theme.dart';
+import 'package:yuque/components/app_scaffold.dart';
 import 'package:yuque/components/search_input.dart';
 import 'package:yuque/pages/yuque_page/group_cell.dart';
 
@@ -16,17 +17,7 @@ class YuquePage extends StatefulWidget {
 class YuquePageState extends State<YuquePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0),
-        child: AppBar(
-          backgroundColor: YQColor.grey7,
-          brightness: Brightness.light,
-          textTheme: TextTheme(title: TextStyle(color: YQColor.grey1, fontSize: 18, fontWeight: FontWeight.w500)),
-          elevation: 0.0,
-          title: Text('语雀'),
-        )
-      ),
+    return AppScaffold(
       body: Container(
         child: ListView(
           children: [
