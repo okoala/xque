@@ -71,7 +71,7 @@ class ItemCellState extends State<ItemCell> {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w500,
                               fontSize: 18,
                             ),
                           ),
