@@ -1,4 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:fluro/fluro.dart';
+
+import 'package:yuque/pages/yuque_page/index.dart';
+import 'package:yuque/pages/doc_page/index.dart';
+import 'package:yuque/pages/me_page/index.dart';
 
 class Application {
   static Router router;
@@ -15,4 +20,28 @@ class Application {
   static Map<String, String> storeKey = {
     'token': 'setting::token'
   };
+
+  static List<Map<String, dynamic>> tabs = [
+    {
+      'title': '语雀',
+      'name': 'yuque',
+      'icon': Image.asset('assets/images/yuque-grey.png'),
+      'selectedIcon': Image.asset('assets/images/yuque-light.png'),
+      'page': YuquePage()
+    },
+    {
+      'title': '文档',
+      'name': 'doc',
+      'icon': Image.asset('assets/images/doc-grey.png'),
+      'selectedIcon': Image.asset('assets/images/doc-light.png'),
+      'page': DocPage()
+    },
+    {
+      'title': '我的',
+      'name': 'me',
+      'icon': Image.asset('assets/images/me-grey.png'),
+      'selectedIcon': Image.asset('assets/images/me-light.png'),
+      'page': MePage()
+    },
+  ];
 }

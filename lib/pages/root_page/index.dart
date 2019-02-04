@@ -2,21 +2,10 @@ import "package:flutter/material.dart";
 import 'package:flutter/cupertino.dart';
 
 import 'package:yuque/config/theme.dart';
-import 'package:yuque/pages/yuque_page/index.dart';
-import 'package:yuque/pages/doc_page/index.dart';
-import 'package:yuque/pages/me_page/index.dart';
+import 'package:yuque/config/application.dart';
+import 'package:yuque/services/tab.dart';
 
-List<Image> tabImages = [
-  Image.asset('assets/images/yuque-grey.png'),
-  Image.asset('assets/images/doc-grey.png'),
-  Image.asset('assets/images/me-grey.png'),
-];
-
-List<Image> tabSelectedImages = [
-  Image.asset('assets/images/yuque-light.png'),
-  Image.asset('assets/images/doc-light.png'),
-  Image.asset('assets/images/me-light.png'),
-];
+TabService tab = new TabService(Application.tabs);
 
 class RootPage extends StatefulWidget {
   final String name;
@@ -33,39 +22,18 @@ class RootPageState extends State<RootPage> {
   @override
   void initState() {
     super.initState();
-    tabIdx = getTabIdxByName(widget.name);
+    tabIdx = tab.getTabIdxByName(widget.name);
   }
 
-  Image getTabIcon(int index) {
-    if (index == tabIdx) {
-      return tabSelectedImages[index];
-    } else {
-      return tabImages[index];
-    }
-  }
-
-  int getTabIdxByName(name) {
-    switch (name) {
-      case 'yuque':
-        return 0;
-      case 'doc':
-        return 1;
-      case 'me':
-        return 2;
-      default:
-        return 0;
-    }
+  BottomNavigationBarItem getBottomNavigationBarItem(_tab, idx) {
+    return BottomNavigationBarItem(icon: tab.getTabIcon(idx, tabIdx), title: Text(_tab['title']));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
-        children: <Widget>[
-          YuquePage(),
-          DocPage(),
-          MePage()
-        ],
+        children: tab.getPages(),
         index: tabIdx,
       ),
       bottomNavigationBar: CupertinoTabBar(
@@ -84,11 +52,7 @@ class RootPageState extends State<RootPage> {
             style: BorderStyle.solid,
           ),
         ),
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: getTabIcon(0), title: Text('语雀')),
-          BottomNavigationBarItem(icon: getTabIcon(1), title: Text('文档')),
-          BottomNavigationBarItem(icon: getTabIcon(2), title: Text('我的')),
-        ],
+        items: tab.getBars(this.getBottomNavigationBarItem),
       ),
     );
   }
