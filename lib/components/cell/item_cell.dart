@@ -3,12 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:yuque/config/theme.dart';
 
 class ItemCell extends StatefulWidget {
-  ItemCell({ this.title, this.header, this.footer, this.isSingle });
+  ItemCell({ this.title, this.header, this.footer, this.isSingle, this.onTap });
 
   final String title;
   final Widget header;
   final Widget footer;
   final bool isSingle;
+  final Function onTap;
 
   @override
   ItemCellState createState() => ItemCellState();
@@ -39,6 +40,7 @@ class ItemCellState extends State<ItemCell> {
     return GestureDetector(
       onTapDown: this.activityTab,
       onTapUp: this.unactivityTab,
+      onTap: widget.onTap,
       child: Container(
         color: bgColor,
         height: 60.0,
