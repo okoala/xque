@@ -47,6 +47,7 @@ class AppScaffold extends StatelessWidget {
       style: CupertinoTheme.of(context).textTheme.textStyle,
       child: CupertinoPageScaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: YQColor.grey7,
         navigationBar: AppNavBar(),
         child: this.body,
       ),
