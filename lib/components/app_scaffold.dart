@@ -32,7 +32,7 @@ class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidge
 
   @override
   Size get preferredSize {
-    return new Size.fromHeight(0.0);
+    return new Size.fromHeight(24.0);
   }
 }
 

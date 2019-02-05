@@ -87,7 +87,7 @@ class ItemCellState extends State<ItemCell> {
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontWeight: FontWeight.w400,
-                              fontSize: 18,
+                              fontSize: 17,
                             ),
                           ),
                         ],
