@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fluro/fluro.dart';
 
 import 'package:yuque/config/theme.dart';
+import 'package:yuque/services/router.dart';
 import 'package:yuque/pages/yuque_page/index.dart';
 import 'package:yuque/pages/doc_page/index.dart';
 import 'package:yuque/pages/me_page/index.dart';
 import 'package:yuque/helpers/color_helpers.dart';
 
+import 'package:yuque/pages/setting_page/index.dart';
+
 class Application {
-  static Router router;
+  static CupertinoRouter router;
 
   static Map<String, String> yuque = {
     'name': '语雀',
@@ -101,8 +103,63 @@ class Application {
         'name': 'setting',
         'icon': CupertinoIcons.gear,
         'iconColor': ColorHelpers.fromHexString('#238cef'),
+        'page': SettingPage(),
+      },
+    ]
+  ];
+
+  static List<List<Map<String, dynamic>>> settingMenus = [
+    [
+      {
+        'title': '账号信息',
+        'name': 'account',
         'page': null,
       },
+    ],
+    [
+      {
+        'title': '新消息通知',
+        'name': 'notifications',
+        'page': null,
+      },
+      {
+        'title': '通用',
+        'name': 'common',
+        'page': null,
+      },
+    ],
+    [
+      {
+        'title': '帮助和反馈',
+        'name': 'help',
+        'page': null,
+      },
+      {
+        'title': '关于语雀',
+        'name': 'about',
+        'page': null,
+      },
+    ],
+    [
+      {
+        'title': '插件',
+        'name': 'help',
+        'page': null,
+      }
+    ],
+    [
+      {
+        'title': '切换账号',
+        'name': 'switch_account',
+        'page': null,
+      }
+    ],
+    [
+      {
+        'title': '退出登录',
+        'name': 'logout',
+        'page': null,
+      }
     ]
   ];
 }
