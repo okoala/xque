@@ -25,6 +25,8 @@ class MenuState extends State<Menu> {
           title: menu['title'],
           icon: menu['icon'],
           iconColor: menu['iconColor'],
+          isCenter: menu['center'] ?? false,
+          hiddenFooter: menu['center'] ?? false,
           onTap: () {
             Application.router.navigateTo(context, '/setting');
           },

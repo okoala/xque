@@ -3,7 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:yuque/config/theme.dart';
 
 class ItemCell extends StatefulWidget {
-  ItemCell({ this.title, this.header, this.icon, this.iconColor, this.footer, this.isSingle, this.isLastItem, this.onTap });
+  ItemCell({
+    this.title,
+    this.header,
+    this.icon,
+    this.iconColor,
+    this.footer,
+    this.isSingle,
+    this.isLastItem,
+    this.hiddenFooter = false,
+    this.isCenter = false,
+    this.onTap
+  });
 
   final String title;
   final Widget header;
@@ -12,6 +23,8 @@ class ItemCell extends StatefulWidget {
   final Widget footer;
   final bool isSingle;
   final bool isLastItem;
+  final bool hiddenFooter;
+  final bool isCenter;
   final Function onTap;
 
   @override
@@ -81,7 +94,7 @@ class ItemCellState extends State<ItemCell> {
                   children: <Widget>[
                     Expanded(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: widget.isCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
@@ -96,7 +109,7 @@ class ItemCellState extends State<ItemCell> {
                         ],
                       ),
                     ),
-                    Padding(
+                    widget.hiddenFooter ? Container() : Padding(
                       padding: EdgeInsets.only(right: 10.0),
                       child: widget.footer != null ? widget.footer : Icon(
                         CupertinoIcons.right_chevron,

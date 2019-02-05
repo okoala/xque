@@ -151,6 +151,7 @@ class Application {
       {
         'title': '切换账号',
         'name': 'switch_account',
+        'center': true,
         'page': null,
       }
     ],
@@ -158,6 +159,7 @@ class Application {
       {
         'title': '退出登录',
         'name': 'logout',
+        'center': true,
         'page': null,
       }
     ]

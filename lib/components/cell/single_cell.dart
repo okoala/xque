@@ -4,13 +4,15 @@ import 'package:yuque/components/cell/item_cell.dart';
 import 'package:yuque/config/theme.dart';
 
 class SingleCell extends StatefulWidget {
-  SingleCell({ this.title, this.header, this.icon, this.iconColor, this.footer, this.onTap });
+  SingleCell({ this.title, this.header, this.icon, this.iconColor, this.footer, this.isCenter, this.hiddenFooter, this.onTap });
 
   final String title;
   final Widget header;
   final Widget footer;
   final IconData icon;
   final Color iconColor;
+  final bool hiddenFooter;
+  final bool isCenter;
   final Function onTap;
 
   @override
@@ -35,6 +37,8 @@ class SingleCellState extends State<SingleCell> {
         iconColor: widget.iconColor,
         footer: widget.footer,
         isSingle: true,
+        hiddenFooter: widget.hiddenFooter,
+        isCenter: widget.isCenter,
         onTap: widget.onTap,
       ),
     );
