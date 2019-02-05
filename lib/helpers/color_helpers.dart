@@ -7,7 +7,7 @@ enum ContrastPreference {
 }
 
 class ColorHelpers {
-  static int fromHexString(String argbHexString) {
+  static Color fromHexString(String argbHexString) {
     String useString = argbHexString;
     if (useString.startsWith("#")) {
       useString = useString.substring(1); // trim the starting '#'
@@ -18,7 +18,7 @@ class ColorHelpers {
     if (!useString.startsWith("0x")) {
       useString = "0x" + useString;
     }
-    return int.parse(useString);
+    return new Color(int.parse(useString));
   }
 
   static final double _kMinContrastModifierRange = 0.35;

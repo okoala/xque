@@ -3,13 +3,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:yuque/config/theme.dart';
 
 class ItemCell extends StatefulWidget {
-  ItemCell({ this.title, this.header, this.iconUrl, this.footer, this.isSingle, this.onTap });
+  ItemCell({ this.title, this.header, this.icon, this.iconColor, this.footer, this.isSingle, this.isLastItem, this.onTap });
 
   final String title;
   final Widget header;
-  final String iconUrl;
+  final IconData icon;
+  final Color iconColor;
   final Widget footer;
   final bool isSingle;
+  final bool isLastItem;
   final Function onTap;
 
   @override
@@ -38,6 +40,16 @@ class ItemCellState extends State<ItemCell> {
 
   @override
   Widget build(BuildContext context) {
+    Widget header;
+
+    if (widget.header == null && widget.icon != null) {
+      header = Icon(
+        widget.icon,
+        color: widget.iconColor ?? CupertinoColors.inactiveGray,
+        size: 26.0,
+      );
+    }
+
     return GestureDetector(
       onTapDown: this.activityTab,
       onTapUp: this.unactivityTab,
@@ -48,17 +60,17 @@ class ItemCellState extends State<ItemCell> {
         child: Row(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(right: 20.0),
-              child: widget.header != null ? Align(
-                alignment: Alignment.topCenter,
-                child: widget.header,
+              padding: EdgeInsets.only(left: 15.0, right: 15.0),
+              child: header != null ? Align(
+                alignment: Alignment.center,
+                child: header,
               ) : null,
             ),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  border: widget.isSingle == false ? Border(
-                    top: BorderSide(color: YQColor.grey5, width: 0.5),
+                  border: widget.isSingle == false && widget.isLastItem == null ? Border(
+                    // top: BorderSide(color: YQColor.grey5, width: 0.5),
                     bottom: BorderSide(color: YQColor.grey5, width: 0.5),
                   ) : null,
                 ),
@@ -74,7 +86,7 @@ class ItemCellState extends State<ItemCell> {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w400,
                               fontSize: 18,
                             ),
                           ),

@@ -42,7 +42,7 @@ var deeplinkHandler = new Handler(
     String result = params["result"]?.first;
     Color color = new Color(0xFFFFFFFF);
     if (colorHex != null && colorHex.length > 0) {
-      color = new Color(ColorHelpers.fromHexString(colorHex));
+      color = ColorHelpers.fromHexString(colorHex);
     }
     // return new Demo(
     //     message: "DEEEEEP LINK!!!", color: color, result: result);

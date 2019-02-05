@@ -20,30 +20,28 @@ class GroupCellState extends State<GroupCell> {
 
     for (int i = 0; i < widget.group.length; i++) {
       final dynamic item = widget.group[i];
+      bool isLastItem;
+
+      if (i == widget.group.length - 1) {
+        isLastItem = true;
+      }
 
       items.add(
         Container(
           child: ItemCell(
             title: item['title'],
             header: item['header'],
-            iconUrl: item['iconUrl'],
+            icon: item['icon'],
+            iconColor: item['iconColor'],
             footer: item['footer'],
-            isSingle: true,
+            isSingle: false,
+            isLastItem: isLastItem,
             onTap: () {
               widget.onTap(item, i);
             }
           )
         )
       );
-
-      if (i != widget.group.length - 1) {
-        items.add(
-          Container(
-            height: 0.5,
-            color: YQColor.grey5,
-          )
-        );
-      }
     }
 
     return Container(
