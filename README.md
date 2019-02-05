@@ -3,7 +3,7 @@
 这个是非官方语雀客户端项目
 
 
-<p align="center"><img width="200" style="margin: 0 10px" src="./screenshot/login.png"><img width="200" style="margin: 0 10px" src="./screenshot/yuque.png"><img width="200" style="margin: 0 10px" src="./screenshot/me.png"></p>
+<p align="center"><img width="160" style="margin: 0 10px" src="./screenshot/login.png"><img width="160" style="margin: 0 10px" src="./screenshot/yuque.png"><img width="160" style="margin: 0 10px" src="./screenshot/me.png"><img width="160" style="margin: 0 10px" src="./screenshot/setting.png"></p>
 
 
 ## Getting Started
