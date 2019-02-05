@@ -4,10 +4,15 @@ import 'package:yuque/config/application.dart';
 import 'package:yuque/config/theme.dart';
 
 class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
+  AppNavBar({ this.showLeading });
+
+  final bool showLeading;
+
   @override
   Widget build(BuildContext context) {
     return CupertinoNavigationBar(
       backgroundColor: YQColor.grey7,
+      transitionBetweenRoutes: false,
       border: Border(
         bottom: BorderSide(
           color: YQColor.grey7,
@@ -16,14 +21,13 @@ class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidge
         ),
       ),
       middle: Text(Application.yuque['name']),
-      leading: null,
-      // leading: CupertinoButton(
-      //   padding: EdgeInsets.zero,
-      //   onPressed: () {
-      //     Application.router.pop(context);
-      //   },
-      //   child: Icon(Icons.chevron_left, size: 30, color: YQColor.grey1,)
-      // ),
+      leading: showLeading != null ? CupertinoButton(
+        padding: EdgeInsets.zero,
+        onPressed: () {
+          Application.router.pop(context);
+        },
+        child: Icon(Icons.chevron_left, size: 30, color: YQColor.grey1,)
+      ) : null,
     );
   }
 
@@ -37,9 +41,10 @@ class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidge
 }
 
 class AppScaffold extends StatelessWidget {
-  AppScaffold({ this.body });
+  AppScaffold({ this.body, this.showLeading });
 
   final Widget body;
+  final bool showLeading;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +53,7 @@ class AppScaffold extends StatelessWidget {
       child: CupertinoPageScaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: YQColor.grey7,
-        navigationBar: AppNavBar(),
+        navigationBar: AppNavBar(showLeading: this.showLeading),
         child: this.body,
       ),
     );

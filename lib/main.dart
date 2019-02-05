@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
 
 import 'package:yuque/config/application.dart';
 import 'package:yuque/config/routes.dart';
+import 'package:yuque/services/router.dart';
 import 'package:yuque/services/db.dart';
 import 'package:yuque/services/token.dart';
 
@@ -35,7 +35,7 @@ class YuqueApp extends StatefulWidget {
 
 class YuqueAppState extends State<YuqueApp> {
   YuqueAppState() {
-    final router = new Router();
+    final router = new CupertinoRouter();
     Routes.configureRoutes(router);
     Application.router = router;
   }

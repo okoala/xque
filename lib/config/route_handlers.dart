@@ -5,6 +5,7 @@ import 'package:fluro/fluro.dart';
 import 'package:yuque/pages/root_page/index.dart';
 import 'package:yuque/pages/login_page/index.dart';
 import 'package:yuque/pages/webview_page/index.dart';
+import 'package:yuque/pages/setting_page/index.dart';
 import 'package:yuque/helpers/color_helpers.dart';
 
 var rootHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -21,6 +22,10 @@ var docHandler = new Handler(handlerFunc: (BuildContext context, Map<String, Lis
 
 var meHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return new RootPage('me');
+});
+
+var settingHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return SettingPage();
 });
 
 var loginHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {

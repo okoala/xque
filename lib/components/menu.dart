@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+import 'package:yuque/config/application.dart';
 import 'package:yuque/components/cell/single_cell.dart';
 import 'package:yuque/components/cell/group_cell.dart';
 
@@ -24,6 +25,9 @@ class MenuState extends State<Menu> {
           title: menu['title'],
           icon: menu['icon'],
           iconColor: menu['iconColor'],
+          onTap: () {
+            Application.router.navigateTo(context, '/setting');
+          },
         ));
       } else if (menus.length > 1) {
         children.add(GroupCell(
