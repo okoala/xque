@@ -43,10 +43,13 @@ class ItemCellState extends State<ItemCell> {
     Widget header;
 
     if (widget.header == null && widget.icon != null) {
-      header = Icon(
-        widget.icon,
-        color: widget.iconColor ?? CupertinoColors.inactiveGray,
-        size: 26.0,
+      header = Container(
+        padding: EdgeInsets.only(left: 4.0, right: 4.0),
+        child: Icon(
+          widget.icon,
+          color: widget.iconColor ?? CupertinoColors.inactiveGray,
+          size: 26.0,
+        )
       );
     }
 
@@ -56,11 +59,11 @@ class ItemCellState extends State<ItemCell> {
       onTap: widget.onTap,
       child: Container(
         color: bgColor,
-        height: 60.0,
+        height: 56.0,
         child: Row(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(left: 15.0, right: 15.0),
+              padding: EdgeInsets.only(left: 10.0, right: 10.0),
               child: header != null ? Align(
                 alignment: Alignment.center,
                 child: header,
