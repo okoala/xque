@@ -13,6 +13,7 @@ class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidge
     return CupertinoNavigationBar(
       backgroundColor: YQColor.grey7,
       transitionBetweenRoutes: false,
+      padding: EdgeInsetsDirectional.only(start: 0.0, end: 0.0),
       border: Border(
         bottom: BorderSide(
           color: YQColor.grey7,
