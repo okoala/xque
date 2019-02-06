@@ -12,6 +12,8 @@ import 'package:yuque/pages/setting_page/index.dart';
 class Application {
   static CupertinoRouter router;
 
+  static String version = '1.0.0';
+
   static Map<String, String> yuque = {
     'name': '语雀',
     'host': 'http://www.yuque.com',
