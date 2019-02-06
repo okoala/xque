@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 
 import 'package:yuque/config/theme.dart';
@@ -31,6 +32,9 @@ class ItemCell extends StatefulWidget {
   ItemCellState createState() => ItemCellState();
 }
 
+
+Timer timer;
+
 class ItemCellState extends State<ItemCell> {
   Color bgColor;
 
@@ -39,13 +43,29 @@ class ItemCellState extends State<ItemCell> {
     bgColor = CupertinoColors.white;
   }
 
-  void activityTab(TapDownDetails details) {
+  void onTapDown(TapDownDetails details) {
     setState(() {
       bgColor = YQColor.grey8;
     });
   }
 
-  void unactivityTab(TapUpDetails details) {
+  void onTapUp(TapUpDetails details) {
+    if (timer != null) {
+      timer?.cancel();
+      timer = null;
+    }
+
+    timer = Timer(Duration(milliseconds: 300), () {
+      setState(() {
+        bgColor = CupertinoColors.white;
+        timer?.cancel();
+        timer = null;
+      });
+    });
+
+  }
+
+  void onTapCancel() {
     setState(() {
       bgColor = CupertinoColors.white;
     });
@@ -67,8 +87,9 @@ class ItemCellState extends State<ItemCell> {
     }
 
     return GestureDetector(
-      onTapDown: this.activityTab,
-      onTapUp: this.unactivityTab,
+      onTapDown: this.onTapDown,
+      onTapUp: this.onTapUp,
+      onTapCancel: this.onTapCancel,
       onTap: widget.onTap,
       child: Container(
         color: bgColor,
