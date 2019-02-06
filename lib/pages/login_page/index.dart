@@ -46,7 +46,7 @@ class LoginPageState extends State<LoginPage> {
     return DefaultTextStyle(
       style: CupertinoTheme.of(context).textTheme.textStyle,
       child: CupertinoPageScaffold(
-        backgroundColor: YQColor.grey7,
+        backgroundColor: Colors.white,
         child: Container(
           padding: EdgeInsets.only(left: 10, right: 10, top: 100, bottom: 10),
           child: SingleChildScrollView(
