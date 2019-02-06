@@ -7,6 +7,24 @@ void showDialog({BuildContext context, Widget child}) {
   );
 }
 
+void showError(BuildContext context, String text) {
+  showDialog(
+    context: context,
+    child: CupertinoAlertDialog(
+      title: Text(text),
+      actions: <Widget>[
+        CupertinoDialogAction(
+          child: Text('确定'),
+          isDefaultAction: true,
+          onPressed: () {
+            Navigator.pop(context, 'Cancel');
+          },
+        ),
+      ],
+    ),
+  );
+}
+
 void showTokenErrorDialog(context) {
   showDialog(
     context: context,

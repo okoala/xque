@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:yuque/config/application.dart';
 import 'package:yuque/components/cell/single_cell.dart';
 import 'package:yuque/components/cell/group_cell.dart';
+import 'package:yuque/services/dialog.dart';
 
 class Menu extends StatefulWidget {
   Menu({this.menus});
@@ -28,12 +29,23 @@ class MenuState extends State<Menu> {
           isCenter: menu['center'] ?? false,
           hiddenFooter: menu['center'] ?? false,
           onTap: () {
-            Application.router.navigateTo(context, '/setting');
+            if (menu['page'] != null) {
+              Application.router.navigateTo(context, menu['page']);
+            } else {
+              showError(context, '功能尚未实现!');
+            }
           },
         ));
       } else if (menus.length > 1) {
         children.add(GroupCell(
           group: menus,
+          onTap: (menu) {
+            if (menu['page'] != null) {
+              Application.router.navigateTo(context, menu['page']);
+            } else {
+              showError(context, '功能尚未实现!');
+            }
+          }
         ));
       }
     }

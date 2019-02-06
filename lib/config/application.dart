@@ -59,14 +59,14 @@ class Application {
         'name': 'book',
         'icon': IconData(0xf428, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage),
         'iconColor': YQColor.primary1,
-        'page': null,
+        // 'page': '/book',
       },
       {
         'title': '团队',
         'name': 'group',
         'icon': IconData(0xf47b, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage),
         'iconColor': YQColor.primary1,
-        'page': null,
+        // 'page': '/group',
       },
     ],
     [
@@ -75,28 +75,28 @@ class Application {
         'name': 'follow',
         'icon': IconData(0xf387, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage),
         'iconColor': ColorHelpers.fromHexString('#f76062'),
-        'page': null,
+        // 'page': '/follow',
       },
       {
         'title': '收藏',
         'name': 'collection',
         'icon': IconData(0xf4b2, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage),
         'iconColor': ColorHelpers.fromHexString('#fec63e'),
-        'page': null,
+        // 'page': '/collection',
       },
       {
         'title': '讨论',
         'name': 'topic',
         'icon': IconData(0xf3ef, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage),
         'iconColor': ColorHelpers.fromHexString('#278eef'),
-        'page': null,
+        // 'page': '/topic',
       },
       {
         'title': '协作',
         'name': 'share',
         'icon': IconData(0xf38c, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage),
         'iconColor': ColorHelpers.fromHexString('#faa44a'),
-        'page': null,
+        // 'page': '/share',
       },
     ],
     [
@@ -105,7 +105,7 @@ class Application {
         'name': 'setting',
         'icon': CupertinoIcons.gear,
         'iconColor': ColorHelpers.fromHexString('#238cef'),
-        'page': SettingPage(),
+        'page': '/setting',
       },
     ]
   ];
@@ -115,38 +115,38 @@ class Application {
       {
         'title': '账号信息',
         'name': 'account',
-        'page': null,
+        // 'page': '/account',
       },
     ],
     [
       {
         'title': '新消息通知',
-        'name': 'notifications',
-        'page': null,
+        'name': 'notification',
+        // 'page': '/notification',
       },
       {
         'title': '通用',
         'name': 'common',
-        'page': null,
+        // 'page': '/common',
       },
     ],
     [
       {
         'title': '帮助和反馈',
         'name': 'help',
-        'page': null,
+        // 'page': '/help',
       },
       {
         'title': '关于语雀',
         'name': 'about',
-        'page': null,
+        // 'page': '/about',
       },
     ],
     [
       {
         'title': '插件',
-        'name': 'help',
-        'page': null,
+        'name': 'plugin',
+        // 'page': '/plugin',
       }
     ],
     [
@@ -154,7 +154,7 @@ class Application {
         'title': '切换账号',
         'name': 'switch_account',
         'center': true,
-        'page': null,
+        // 'page': '/switch_accout',
       }
     ],
     [
@@ -162,7 +162,7 @@ class Application {
         'title': '退出登录',
         'name': 'logout',
         'center': true,
-        'page': null,
+        // 'page': '/logout',
       }
     ]
   ];

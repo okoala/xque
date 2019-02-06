@@ -37,7 +37,7 @@ class GroupCellState extends State<GroupCell> {
             isSingle: false,
             isLastItem: isLastItem,
             onTap: () {
-              widget.onTap(item, i);
+              widget.onTap(item);
             }
           )
         )
