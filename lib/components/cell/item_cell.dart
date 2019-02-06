@@ -103,6 +103,13 @@ class ItemCellState extends State<ItemCell> {
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontWeight: FontWeight.w400,
+                              shadows: <Shadow>[
+                                Shadow(
+                                  offset: Offset(0.0, 0.0),
+                                  blurRadius: 1.0,
+                                  color: Color.fromARGB(50, 0, 0, 0),
+                                ),
+                              ],
                               fontSize: 17,
                             ),
                           ),
