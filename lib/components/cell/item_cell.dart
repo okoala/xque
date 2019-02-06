@@ -55,9 +55,10 @@ class ItemCellState extends State<ItemCell> {
       timer = null;
     }
 
-    timer = Timer(Duration(milliseconds: 300), () {
+    timer = Timer(Duration(milliseconds: 50), () {
       setState(() {
         bgColor = CupertinoColors.white;
+        widget.onTap();
         timer?.cancel();
         timer = null;
       });
@@ -90,7 +91,6 @@ class ItemCellState extends State<ItemCell> {
       onTapDown: this.onTapDown,
       onTapUp: this.onTapUp,
       onTapCancel: this.onTapCancel,
-      onTap: widget.onTap,
       child: Container(
         color: bgColor,
         height: 56.0,
