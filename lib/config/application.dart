@@ -134,7 +134,7 @@ class Application {
       {
         'title': '帮助和反馈',
         'name': 'help',
-        // 'page': '/help',
+        'page': yuque['issueUrl'],
       },
       {
         'title': '关于语雀',

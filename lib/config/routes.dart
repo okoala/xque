@@ -12,6 +12,7 @@ class Routes {
   static String login = '/login';
   static String setting = '/setting';
   static String webview = '/webview';
+  static String launcher = '/launcher';
   static String deeplink = "/message";
 
   static void configureRoutes(CupertinoRouter router) {
@@ -28,6 +29,7 @@ class Routes {
     router.define(setting, handler: settingHandler);
     router.define(login, handler: loginHandler);
     router.define(webview, handler: webviewHandler);
+    router.define(launcher, handler: launcherHandler);
     router.define(deeplink, handler: deeplinkHandler);
   }
 }

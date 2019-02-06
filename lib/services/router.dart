@@ -11,6 +11,7 @@ import 'dart:async';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 export 'package:fluro/src/common.dart';
 export 'package:fluro/src/tree.dart';
@@ -38,6 +39,10 @@ class CupertinoRouter {
   }
 
   bool pop(BuildContext context) => Navigator.pop(context);
+
+  openWeb(url) {
+    launch(url);
+  }
 
   ///
   Future navigateTo(BuildContext context, String path,

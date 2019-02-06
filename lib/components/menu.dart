@@ -14,6 +14,19 @@ class Menu extends StatefulWidget {
 }
 
 class MenuState extends State<Menu> {
+  void handleTap(menu) {
+    final String page = menu['page'];
+    if (page != null) {
+      if (page.startsWith('http')) {
+        Application.router.openWeb(page);
+      } else {
+        Application.router.navigateTo(context, page);
+      }
+    } else {
+      showError(context, '功能尚未实现!');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> children = [];
@@ -29,22 +42,14 @@ class MenuState extends State<Menu> {
           isCenter: menu['center'] ?? false,
           hiddenFooter: menu['center'] ?? false,
           onTap: () {
-            if (menu['page'] != null) {
-              Application.router.navigateTo(context, menu['page']);
-            } else {
-              showError(context, '功能尚未实现!');
-            }
+            handleTap(menu);
           },
         ));
       } else if (menus.length > 1) {
         children.add(GroupCell(
           group: menus,
           onTap: (menu) {
-            if (menu['page'] != null) {
-              Application.router.navigateTo(context, menu['page']);
-            } else {
-              showError(context, '功能尚未实现!');
-            }
+            handleTap(menu);
           }
         ));
       }

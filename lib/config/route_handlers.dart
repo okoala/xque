@@ -1,7 +1,8 @@
 import 'package:flutter/painting.dart';
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import 'package:yuque/services/router.dart';
 import 'package:yuque/pages/root_page/index.dart';
 import 'package:yuque/pages/login_page/index.dart';
 import 'package:yuque/pages/webview_page/index.dart';
@@ -40,6 +41,12 @@ var webviewHandler = new Handler(
   return new WebViewPage(url, title);
 });
 
+var launcherHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  String url = params['url']?.first;
+
+  launch(url);
+});
 
 var deeplinkHandler = new Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
