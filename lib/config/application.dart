@@ -7,8 +7,6 @@ import 'package:yuque/pages/doc_page/index.dart';
 import 'package:yuque/pages/me_page/index.dart';
 import 'package:yuque/helpers/color_helpers.dart';
 
-import 'package:yuque/pages/setting_page/index.dart';
-
 class Application {
   static CupertinoRouter router;
 
