@@ -28,6 +28,10 @@ dependencies:
   intl: ^0.15.7
   url_launcher: ^5.0.0
   cached_network_image: ^0.5.1
+  logging: ^0.11.3+2
+  json_annotation: ^2.0.0
+  sprintf: ^4.0.0
+  rxdart: ^0.20.0
 
 dev_dependencies:
   flutter_test:
