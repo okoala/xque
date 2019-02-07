@@ -2,7 +2,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:yuque/services/router.dart';
+import 'package:yuque/core/router.dart';
 import 'package:yuque/pages/root_page/index.dart';
 import 'package:yuque/pages/login_page/index.dart';
 import 'package:yuque/pages/webview_page/index.dart';

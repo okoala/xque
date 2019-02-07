@@ -1,4 +1,4 @@
-import 'package:yuque/services/cache.dart';
+import 'package:yuque/core/cache.dart';
 import 'package:yuque/config/application.dart';
 
 class Token {

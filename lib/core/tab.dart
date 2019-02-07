@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class TabService {
-  TabService(this.tabs);
+class TabCore {
+  TabCore(this.tabs);
 
   final List<Map<String, dynamic>> tabs;
 

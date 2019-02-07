@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:yuque/config/application.dart';
+import 'package:yuque/core/dialog.dart';
 import 'package:yuque/components/cell/single_cell.dart';
 import 'package:yuque/components/cell/group_cell.dart';
-import 'package:yuque/services/dialog.dart';
 
 class Menu extends StatefulWidget {
   Menu({this.menus});

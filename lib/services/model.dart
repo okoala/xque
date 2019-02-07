@@ -1,5 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:yuque/services/db.dart';
+import 'package:yuque/core/db.dart';
 
 // class Model {
 //   final String tableName;

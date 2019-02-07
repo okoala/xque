@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:yuque/config/theme.dart';
-import 'package:yuque/services/router.dart';
+import 'package:yuque/core/router.dart';
 import 'package:yuque/pages/yuque_page/index.dart';
 import 'package:yuque/pages/doc_page/index.dart';
 import 'package:yuque/pages/me_page/index.dart';

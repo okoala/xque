@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yuque/config/theme.dart';
 import 'package:yuque/config/application.dart';
-import 'package:yuque/services/dialog.dart';
+import 'package:yuque/core/dialog.dart';
 import 'package:yuque/services/token.dart';
 import 'package:yuque/services/api.dart';
 

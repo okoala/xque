@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:yuque/config/theme.dart';
 import 'package:yuque/config/application.dart';
-import 'package:yuque/services/tab.dart';
+import 'package:yuque/core/tab.dart';
 
-TabService tab = new TabService(Application.tabs);
+TabCore tab = new TabCore(Application.tabs);
 
 class RootPage extends StatefulWidget {
   final String name;

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:yuque/config/route_handlers.dart';
-import 'package:yuque/services/router.dart';
+import 'package:yuque/core/router.dart';
 
 class Routes {
   static String root = "/";
