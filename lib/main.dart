@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:yuque/config/application.dart';
 import 'package:yuque/config/routes.dart';
 import 'package:yuque/core/router.dart';
-import 'package:yuque/core/db.dart';
+import 'package:yuque/core/db_provider.dart';
 import 'package:yuque/services/token.dart';
 
 var db;
 
 void main() async {
-  final provider = new DBService();
+  final provider = new DBProvider();
   await provider.init();
-  db = DBService.db;
+  db = DBProvider.db;
 
   var initRoute = '/';
 
