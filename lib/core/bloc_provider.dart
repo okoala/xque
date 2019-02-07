@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
+export 'package:rxdart/rxdart.dart';
+export 'package:rxdart/subjects.dart';
+
 abstract class BlocBase {
   void dispose();
 }
