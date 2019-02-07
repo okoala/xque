@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:yuque/config/application.dart';
-import 'package:yuque/core/routes.dart';
+import 'package:yuque/routes.dart';
 import 'package:yuque/core/router.dart';
 import 'package:yuque/core/db_provider.dart';
 import 'package:yuque/services/token.dart';
