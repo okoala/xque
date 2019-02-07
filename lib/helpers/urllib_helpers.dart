@@ -9,9 +9,6 @@ class UrllibHelpers {
   static Future get(String url, {Map<String, dynamic> params, String token}) async {
     final requestUrl = Application.yuque["host"] + Application.yuque["apiRoot"] + url;
 
-    print("requestUrl ${requestUrl}");
-    print("token ${token}");
-
     var response;
     try {
       response = await dio.get(requestUrl,
