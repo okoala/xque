@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-import 'package:yuque/config/application.dart';
+import 'package:yuque/config/config.dart';
 import 'package:yuque/config/theme.dart';
 
 class WebViewPage extends StatefulWidget {
@@ -40,7 +40,7 @@ class WebViewPageState extends State<WebViewPage> {
         ),
         child: WebviewScaffold(
           url: widget.url,
-          userAgent: Application.yuque['useragent'],
+          userAgent: Config.yuque['useragent'],
           withZoom: true,
           withJavascript: true,
           withLocalStorage: true,

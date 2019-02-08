@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yuque/config/application.dart';
+import 'package:yuque/config/config.dart';
 import 'package:yuque/components/app_scaffold.dart';
 import 'package:yuque/components/menu.dart';
 
@@ -19,7 +19,7 @@ class MePageState extends State<MePage> {
     return AppScaffold(
       body: Container(
         child: Menu(
-          menus: Application.meMenus,
+          menus: Config.meMenus,
         )
       ),
     );

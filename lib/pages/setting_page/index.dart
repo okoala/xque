@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yuque/config/application.dart';
+import 'package:yuque/config/config.dart';
 import 'package:yuque/components/app_scaffold.dart';
 import 'package:yuque/components/menu.dart';
 
@@ -20,7 +20,7 @@ class SettingPageState extends State<SettingPage> {
       showLeading: true,
       body: Container(
         child: Menu(
-          menus: Application.settingMenus,
+          menus: Config.settingMenus,
         )
       ),
     );

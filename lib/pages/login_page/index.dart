@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yuque/config/theme.dart';
-import 'package:yuque/config/application.dart';
+import 'package:yuque/config/config.dart';
+import 'package:yuque/core/app_provider.dart';
 import 'package:yuque/core/dialog.dart';
 import 'package:yuque/services/token.dart';
-import 'package:yuque/services/api.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -24,7 +24,7 @@ class LoginPageState extends State<LoginPage> {
       ApiService.ping(this.token).then((res) {
         if (res != null && res['data']['message'] != null) {
           Token.setToken(this.token).then((res) {
-            Application.router.navigateTo(context, '/yuque');
+            AppProvider.getRouter(context).navigateTo(context, '/yuque');
           });
         } else {
           showTokenErrorDialog(context);
@@ -34,7 +34,7 @@ class LoginPageState extends State<LoginPage> {
   }
 
   void openSettingPage() {
-    final String url = Application.yuque["tokenUrl"];
+    final String url = Config.yuque["tokenUrl"];
 
     launch(url, forceWebView: true);
   }
