@@ -1,5 +1,6 @@
 import 'package:yuque/config/config.dart';
 
-class LocalConfig extends Config {
-
+class TestConfig extends Config {
+  final String appName = "语雀 (Test)";
+  final EnvType env = EnvType.TEST;
 }

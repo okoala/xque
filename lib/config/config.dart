@@ -1,7 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_stetho/flutter_stetho.dart';
-
-import 'package:yuque/core/application.dart';
 import 'package:yuque/config/theme.dart';
 import 'package:yuque/pages/yuque_page/index.dart';
 import 'package:yuque/pages/doc_page/index.dart';
@@ -15,8 +12,9 @@ enum EnvType {
 }
 
 class Config {
-  static String version = '1.0.0';
   static Config value;
+
+  static String version = '1.0.0';
   String appName;
   EnvType env;
 
@@ -178,14 +176,5 @@ class Config {
 
   Config() {
     value = this;
-    _init();
-  }
-
-  void _init() async {
-    if (env == EnvType.LOCAL || env == EnvType.TEST) {
-      Stetho.initialize();
-    }
-
-    var application = Application();
   }
 }

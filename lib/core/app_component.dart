@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:yuque/core/application.dart';
+import 'package:yuque/core/app_application.dart';
 import 'package:yuque/core/app_provider.dart';
 import 'package:yuque/config/config.dart';
 import 'package:yuque/core/log.dart';
 
 class AppComponent extends StatefulWidget {
-  final Application _application;
+  final AppApplication _application;
 
   AppComponent(this._application);
 
@@ -15,7 +15,7 @@ class AppComponent extends StatefulWidget {
 }
 
 class AppComponentState extends State<AppComponent> {
-  final Application _application;
+  final AppApplication _application;
 
   AppComponentState(this._application);
 

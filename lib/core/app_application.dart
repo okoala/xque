@@ -8,7 +8,7 @@ import 'package:yuque/core/api_repository.dart';
 import 'package:yuque/core/log.dart';
 import 'package:yuque/routes.dart';
 
-class Application {
+class AppApplication {
   CupertinoRouter router;
   DBProvider _db;
   DBRepository _dbRepository;
