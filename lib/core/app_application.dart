@@ -10,9 +10,9 @@ import 'package:yuque/routes.dart';
 
 class AppApplication {
   CupertinoRouter router;
-  DBProvider _db;
-  DBRepository _dbRepository;
-  APIRepository _apiRepository;
+  DBProvider db;
+  DBRepository dbRepository;
+  APIRepository apiRepository;
 
   Future<void> onCreate() async {
     _initLog();
@@ -23,7 +23,7 @@ class AppApplication {
   }
 
   Future<void> onTerminate() async {
-    await _db.close();
+    await db.close();
   }
 
   void _initLog() {
@@ -50,18 +50,18 @@ class AppApplication {
     DBListener dbListener = DBListener();
     DBConfig dbConfig = DBConfig(Config.value.dbVersion, Config.value.dbName, dbListener.onCreate, dbListener.onUpgrade);
 
-    _db = DBProvider(dbConfig);
+    db = DBProvider(dbConfig);
 
     Log.info('DB name: ' + Config.value.dbName);
-    await _db.open();
+    await db.open();
   }
 
   void _initDBRepository() {
-    _dbRepository = DBRepository(_db.database);
+    dbRepository = DBRepository(_db.database);
   }
 
   void _initAPIRepository() {
     APIProvider _apiProvider = APIProvider();
-    _apiRepository = APIRepository(_apiProvider, _dbRepository);
+    apiRepository = APIRepository(_apiProvider, dbRepository);
   }
 }
