@@ -2,10 +2,10 @@ import "package:flutter/material.dart";
 import 'package:flutter/cupertino.dart';
 
 import 'package:yuque/config/theme.dart';
-import 'package:yuque/config/application.dart';
+import 'package:yuque/config/config.dart';
 import 'package:yuque/core/tab.dart';
 
-TabCore tab = new TabCore(Application.tabs);
+TabCore tab = new TabCore(Config.tabs);
 
 class RootPage extends StatefulWidget {
   final String name;

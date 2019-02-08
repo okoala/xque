@@ -4,11 +4,11 @@ import 'package:sqflite/sqflite.dart';
 class DBProvider {
 
   Database _database;
-  DBConfig databaseConfig;
+  DBConfig dbConfig;
 
 
-  DBProvider(this.databaseConfig){
-    if(null == databaseConfig){
+  DBProvider(this.dbConfig){
+    if(null == dbConfig){
       throw NullThrownError;
     }
   }
@@ -16,9 +16,11 @@ class DBProvider {
   Future<void> open() async {
     var path = await _getDBPath();
 
-    _database = await openDatabase(path, version: databaseConfig.version,
-        onCreate: null != databaseConfig.databaseMigrationListener ? databaseConfig.databaseMigrationListener.onCreate : null,
-        onUpgrade: null != databaseConfig.databaseMigrationListener ? databaseConfig.databaseMigrationListener.onUpgrade : null
+    _database = await openDatabase(
+      path,
+      version: dbConfig.version,
+      onCreate: null != dbConfig.onCreate ? dbConfig.onCreate : null,
+      onUpgrade: null != dbConfig.onUpgrade ? dbConfig.onUpgrade : null
     );
   }
 
@@ -34,8 +36,8 @@ class DBProvider {
   }
 
   Future<String> _getDBPath() async{
-    var databasesPath = await getDatabasesPath();
-    return join(databasesPath, databaseConfig.dbName);
+    var dbPath = await getDatabasesPath();
+    return join(dbPath, dbConfig.dbName);
   }
 
   Database get database => _database;
@@ -45,9 +47,10 @@ class DBProvider {
 class DBConfig{
   int version;
   String dbName;
-  DatabaseMigrationListener databaseMigrationListener;
+  Function onCreate;
+  Function onUpgrade;
 
-  DBConfig(this.version, this.dbName, this.databaseMigrationListener);
+  DBConfig(this.version, this.dbName, this.onCreate, this.onUpgrade);
 }
 
 abstract class DatabaseMigrationListener{

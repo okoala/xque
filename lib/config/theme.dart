@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class YQColor {
   static Color primary1 = Color(0xFF25B864);

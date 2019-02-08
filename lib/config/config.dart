@@ -1,16 +1,27 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_stetho/flutter_stetho.dart';
 
+import 'package:yuque/core/application.dart';
 import 'package:yuque/config/theme.dart';
-import 'package:yuque/core/router.dart';
 import 'package:yuque/pages/yuque_page/index.dart';
 import 'package:yuque/pages/doc_page/index.dart';
 import 'package:yuque/pages/me_page/index.dart';
 import 'package:yuque/helpers/color_helpers.dart';
 
-class Application {
-  static CupertinoRouter router;
+enum EnvType {
+  LOCAL,
+  PROD,
+  TEST
+}
 
+class Config {
   static String version = '1.0.0';
+  static Config value;
+  String appName;
+  EnvType env;
+
+  int dbVersion = 1;
+  String dbName;
 
   static Map<String, String> yuque = {
     'name': '语雀',
@@ -164,4 +175,17 @@ class Application {
       }
     ]
   ];
+
+  Config() {
+    value = this;
+    _init();
+  }
+
+  void _init() async {
+    if (env == EnvType.LOCAL || env == EnvType.TEST) {
+      Stetho.initialize();
+    }
+
+    var application = Application();
+  }
 }

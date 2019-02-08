@@ -1,4 +1,5 @@
 import 'package:logging/logging.dart';
+export 'package:logging/logging.dart';
 
 class Log{
   static const String _NAME = 'Logger';

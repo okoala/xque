@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:yuque/config/application.dart';
+import 'package:yuque/core/router.dart';
+import 'package:yuque/config/config.dart';
 import 'package:yuque/config/theme.dart';
 
 class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
@@ -21,11 +22,11 @@ class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidge
           style: BorderStyle.solid,
         ),
       ),
-      middle: Text(Application.yuque['name']),
+      middle: Text(Config.yuque['name']),
       leading: showLeading != null ? CupertinoButton(
         padding: EdgeInsets.zero,
         onPressed: () {
-          Application.router.pop(context);
+          router.pop(context);
         },
         child: Icon(Icons.chevron_left, size: 30, color: YQColor.grey1,)
       ) : null,
