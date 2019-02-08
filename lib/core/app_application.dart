@@ -51,7 +51,6 @@ class AppApplication {
     DBConfig dbConfig = DBConfig(Config.value.dbVersion, Config.value.dbName, dbListener.onCreate, dbListener.onUpgrade);
 
     db = DBProvider(dbConfig);
-
     Log.info('DB name: ' + Config.value.dbName);
     await db.open();
   }
