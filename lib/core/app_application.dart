@@ -57,7 +57,7 @@ class AppApplication {
   }
 
   void _initDBRepository() {
-    dbRepository = DBRepository(_db.database);
+    dbRepository = DBRepository(db.database);
   }
 
   void _initAPIRepository() {

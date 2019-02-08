@@ -11,8 +11,8 @@ class APIRepository {
 
   APIRepository(this._apiProvider, this._dbRepository);
 
-  Observable<HelloModel> ping() {
-    return Observable.fromFuture(_apiProvider.getHello())
+  Observable<HelloModel> ping(String token) {
+    return Observable.fromFuture(_apiProvider.getHello(token))
     .flatMap((HelloResponse response) {
       return Observable.just(response.data);
     });

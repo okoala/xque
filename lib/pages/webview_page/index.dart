@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-
+import 'package:yuque/core/app_provider.dart';
 import 'package:yuque/config/config.dart';
 import 'package:yuque/config/theme.dart';
 
@@ -28,7 +28,7 @@ class WebViewPageState extends State<WebViewPage> {
           leading: CupertinoButton(
             padding: EdgeInsets.zero,
             onPressed: () {
-              Application.router.pop(context);
+              AppProvider.getRouter(context).pop(context);
             },
             child: Icon(Icons.close, size: 26, color: YQColor.grey1,)
           ),

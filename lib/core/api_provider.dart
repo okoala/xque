@@ -39,7 +39,8 @@ class APIProvider {
     }
   }
 
-  Future<HelloResponse> getHello() async {
+  Future<HelloResponse> getHello(String token) async {
+    _dio.options.headers['X-Auth-Token'] = token;
     Response response = await _dio.get(_HELLO_API);
     throwIfNoSuccess(response);
     return HelloResponse.fromJson(jsonDecode(response.data));

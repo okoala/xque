@@ -13,6 +13,6 @@ class DBListener {
   }
 
   Future<void> _createDatabase(Database db, int version) async {
-    await db.execute('CREATE TABLE YuqueHome (id INTEGER PRIMARY KEY, order INTEGER, title: TEXT, subtitle: TEXT, icon: TEXT, isFiexed INTEGER, isUnread: INTEGER)');
+    await db.execute('CREATE TABLE HomeFeed (id INTEGER PRIMARY KEY, order INTEGER, title: TEXT, subtitle: TEXT, icon: TEXT, isFiexed INTEGER, isUnread: INTEGER)');
   }
 }

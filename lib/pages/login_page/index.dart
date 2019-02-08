@@ -5,6 +5,7 @@ import 'package:yuque/config/theme.dart';
 import 'package:yuque/config/config.dart';
 import 'package:yuque/core/app_provider.dart';
 import 'package:yuque/core/dialog.dart';
+import 'package:yuque/pojo/response/hello_response.dart';
 import 'package:yuque/services/token.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,8 +22,8 @@ class LoginPageState extends State<LoginPage> {
     if (this.token == '' || this.token == null) {
       showTokenErrorDialog(context);
     } else {
-      ApiService.ping(this.token).then((res) {
-        if (res != null && res['data']['message'] != null) {
+      AppProvider.getApplication(context).apiRepository.ping(token).listen((HelloModel helloModel) {
+        if (helloModel.message.isNotEmpty) {
           Token.setToken(this.token).then((res) {
             AppProvider.getRouter(context).navigateTo(context, '/yuque');
           });
