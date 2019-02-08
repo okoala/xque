@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'package:yuque/config/application.dart';
+import 'package:yuque/core/app_provider.dart';
 import 'package:yuque/core/dialog.dart';
 import 'package:yuque/components/cell/single_cell.dart';
 import 'package:yuque/components/cell/group_cell.dart';
@@ -18,9 +18,9 @@ class MenuState extends State<Menu> {
     final String page = menu['page'];
     if (page != null) {
       if (page.startsWith('http')) {
-        Application.router.openWeb(page);
+        AppProvider.getRouter(context).openWeb(page);
       } else {
-        Application.router.navigateTo(context, page);
+        AppProvider.getRouter(context).navigateTo(context, page);
       }
     } else {
       showError(context, '功能尚未实现!');
