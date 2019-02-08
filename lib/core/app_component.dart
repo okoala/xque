@@ -7,17 +7,19 @@ import 'package:yuque/core/log.dart';
 
 class AppComponent extends StatefulWidget {
   final AppApplication _application;
+  final String _initRoute;
 
-  AppComponent(this._application);
+  AppComponent(this._application, this._initRoute);
 
   @override
-  State createState() => AppComponentState(_application);
+  State createState() => AppComponentState(_application, _initRoute);
 }
 
 class AppComponentState extends State<AppComponent> {
   final AppApplication _application;
+  final String _initRoute;
 
-  AppComponentState(this._application);
+  AppComponentState(this._application, this._initRoute);
 
   @override
   void dispose() async {
@@ -30,7 +32,7 @@ class AppComponentState extends State<AppComponent> {
     final app = MaterialApp(
       title: Config.value.appName,
       debugShowCheckedModeBanner: false,
-      // initialRoute: widget.initRoute,
+      initialRoute: this._initRoute,
       onGenerateRoute: _application.router.generator,
     );
 
@@ -40,6 +42,7 @@ class AppComponentState extends State<AppComponent> {
       child: app,
       application: _application,
     );
+
     return appProvider;
   }
 }
