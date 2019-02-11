@@ -17,7 +17,7 @@ Future<void> init(Config config) async {
   String token = await Token.getToken();
   String initRoute = "/";
 
-  if (token.isEmpty) {
+  if (token == null || token.isEmpty) {
     initRoute = "/login";
   }
 
