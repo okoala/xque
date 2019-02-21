@@ -11,6 +11,8 @@ class Routes {
   static String me = "/me";
   static String login = '/login';
   static String setting = '/setting';
+  static String search = '/search';
+  static String searchResult = '/search_result';
   static String webview = '/webview';
   static String launcher = '/launcher';
   static String deeplink = "/message";
@@ -28,6 +30,8 @@ class Routes {
     router.define(me, handler: meHandler);
     router.define(setting, handler: settingHandler);
     router.define(login, handler: loginHandler);
+    router.define(search, handler: searchHandler);
+    router.define(searchResult, handler: searchResultHandler);
     router.define(webview, handler: webviewHandler);
     router.define(launcher, handler: launcherHandler);
     router.define(deeplink, handler: deeplinkHandler);

@@ -43,9 +43,10 @@ class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidge
 }
 
 class AppScaffold extends StatelessWidget {
-  AppScaffold({ this.body, this.showLeading });
+  AppScaffold({ this.body, this.showNavigationBar = true, this.showLeading });
 
   final Widget body;
+  final bool showNavigationBar;
   final bool showLeading;
 
   @override
@@ -55,7 +56,7 @@ class AppScaffold extends StatelessWidget {
       child: CupertinoPageScaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: YQColor.grey7,
-        navigationBar: AppNavBar(showLeading: this.showLeading),
+        navigationBar: showNavigationBar == true ? AppNavBar(showLeading: this.showLeading) : null,
         child: this.body,
       ),
     );

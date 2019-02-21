@@ -25,7 +25,7 @@ class LoginPageState extends State<LoginPage> {
       AppProvider.getApplication(context).apiRepository.ping(token).listen((HelloModel helloModel) {
         if (helloModel.message.isNotEmpty) {
           Token.setToken(this.token).then((res) {
-            AppProvider.getRouter(context).navigateTo(context, '/yuque');
+            AppProvider.getRouter(context).navigateTo(context, '/yuque', replace: true);
           });
         } else {
           showTokenErrorDialog(context);

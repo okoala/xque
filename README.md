@@ -8,6 +8,11 @@
 
 ## Getting Started
 
-Generate json serialize and deserialize functions
+### Run in local
+
+> flutter run lib/boot/boot_local.dart
+
+
+### Generate json serialize and deserialize functions
 
 > flutter packages pub run build_runner build --delete-conflicting-outputs

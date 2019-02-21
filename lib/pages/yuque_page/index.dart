@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:yuque/config/theme.dart';
+import 'package:yuque/core/app_provider.dart';
 import 'package:yuque/components/app_scaffold.dart';
 import 'package:yuque/components/search_input.dart';
 import 'package:yuque/pages/yuque_page/group_cell.dart';
@@ -22,7 +23,9 @@ class YuquePageState extends State<YuquePage> {
       body: Container(
         child: ListView(
           children: [
-            SearchInput(),
+            SearchInput(onTap: () {
+              AppProvider.getRouter(context).navigateTo(context, '/search');
+            }),
             GroupCell(title: '我的消息', doctitle: '仙森邀请你来体验新APP',
             iconColor: YQColor.primary1,
             iconUrl: ClipOval(child:Image.asset('assets/images/notice.png'))),
