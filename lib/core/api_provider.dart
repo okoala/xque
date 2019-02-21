@@ -51,12 +51,11 @@ class APIProvider {
   }
 
   Future<SearchReposResponse> getSearchRepos(String searchType, String searchText) async {
-    Response response = await _dio.get(_SESRCH_REPOS_API,
-      data: {
-        'type': searchType,
-        'q': searchText
-      }
-    );
+    _dio.options.data = {
+      "type": searchType,
+      "q": searchText
+    };
+    Response response = await _dio.get(_SESRCH_REPOS_API);
     throwIfNoSuccess(response);
     return SearchReposResponse.fromJson(jsonDecode(response.data));
   }
