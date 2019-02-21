@@ -5,5 +5,4 @@ import 'package:yuque/core/app_application.dart';
 
 class YuqueBloc {
   final AppApplication _application;
-  final _feedList = BehaviorSubject;
 }

@@ -5,6 +5,8 @@ import 'package:yuque/config/config.dart';
 import 'package:yuque/core/http_exception.dart';
 import 'package:yuque/core/dio_logger.dart';
 import 'package:yuque/pojo/response/hello_response.dart';
+import 'package:yuque/pojo/response/search_repos_response.dart';
+import 'package:yuque/pojo/book.dart';
 // import 'package:sprintf/sprintf.dart';
 
 class APIProvider {
@@ -12,6 +14,8 @@ class APIProvider {
   static String _baseUrl = Config.yuque["host"] + Config.yuque["apiRoot"];
 
   static const String _HELLO_API = '/hello';
+  static const String _SESRCH_REPOS_API = '/search/repos';
+
 
   Dio _dio;
 
@@ -44,6 +48,17 @@ class APIProvider {
     Response response = await _dio.get(_HELLO_API);
     throwIfNoSuccess(response);
     return HelloResponse.fromJson(jsonDecode(response.data));
+  }
+
+  Future<SearchReposResponse> getSearchRepos(String searchType, String searchText) async {
+    Response response = await _dio.get(_SESRCH_REPOS_API,
+      data: {
+        'type': searchType,
+        'q': searchText
+      }
+    );
+    throwIfNoSuccess(response);
+    return SearchReposResponse.fromJson(jsonDecode(response.data));
   }
 
   void throwIfNoSuccess(Response response) {
