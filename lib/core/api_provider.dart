@@ -47,7 +47,7 @@ class APIProvider {
     _dio.options.headers['X-Auth-Token'] = token;
     Response response = await _dio.get(_HELLO_API);
     throwIfNoSuccess(response);
-    return HelloResponse.fromJson(jsonDecode(response.data));
+    return HelloResponse.fromJson(response.data);
   }
 
   Future<SearchReposResponse> getSearchRepos(String searchType, String searchText) async {
