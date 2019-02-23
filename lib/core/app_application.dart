@@ -6,6 +6,7 @@ import 'package:yuque/core/db_listener.dart';
 import 'package:yuque/core/api_provider.dart';
 import 'package:yuque/core/api_repository.dart';
 import 'package:yuque/core/log.dart';
+import 'package:yuque/pojo/user.dart';
 import 'package:yuque/routes.dart';
 
 class AppApplication {
@@ -13,8 +14,12 @@ class AppApplication {
   DBProvider db;
   DBRepository dbRepository;
   APIRepository apiRepository;
+  APIProvider apiProvider;
+  String token;
+  User user;
 
-  Future<void> onCreate() async {
+  Future<void> onCreate(String token) async {
+    _initToken(token);
     _initLog();
     _initRouter();
     await _initDB();
@@ -24,6 +29,14 @@ class AppApplication {
 
   Future<void> onTerminate() async {
     await db.close();
+  }
+
+  void _initToken(String _token) {
+    token = _token;
+  }
+
+  void setUser(User _user) {
+    user = _user;
   }
 
   void _initLog() {
@@ -60,7 +73,7 @@ class AppApplication {
   }
 
   void _initAPIRepository() {
-    APIProvider _apiProvider = APIProvider();
-    apiRepository = APIRepository(_apiProvider, dbRepository);
+    apiProvider = APIProvider(token);
+    apiRepository = APIRepository(apiProvider, dbRepository);
   }
 }

@@ -1,13 +1,15 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:sprintf/sprintf.dart';
 
 import 'package:yuque/config/config.dart';
 import 'package:yuque/core/http_exception.dart';
 import 'package:yuque/core/dio_logger.dart';
 import 'package:yuque/pojo/response/hello_response.dart';
 import 'package:yuque/pojo/response/search_repos_response.dart';
-import 'package:yuque/pojo/book.dart';
-// import 'package:sprintf/sprintf.dart';
+import 'package:yuque/pojo/response/group_response.dart';
+import 'package:yuque/pojo/response/user_response.dart';
+import 'package:yuque/services/token.dart';
 
 class APIProvider {
   static const String TAG = 'APIProvider';
@@ -15,14 +17,16 @@ class APIProvider {
 
   static const String _HELLO_API = '/hello';
   static const String _SESRCH_REPOS_API = '/search/repos';
-
+  static const String _LOGIN_USER_API = '/user';
+  static const String _USER_GROUPS_API = '/users/userId=%d/groups';
 
   Dio _dio;
 
-  APIProvider() {
+  APIProvider(token) {
     _dio = Dio();
 
     _dio.options.baseUrl = APIProvider._baseUrl;
+    _dio.options.headers['X-Auth-Token'] = token;
 
     if (EnvType.LOCAL == Config.value.env || EnvType.TEST == Config.value.env) {
       _dio.interceptors.add(InterceptorsWrapper(
@@ -49,11 +53,21 @@ class APIProvider {
     }
   }
 
+  Map<String, dynamic> getJson(Response response) {
+    return jsonDecode(response.toString())["data"];
+  }
+
   Future<HelloResponse> getHello(String token) async {
     _dio.options.headers['X-Auth-Token'] = token;
     Response response = await _dio.get(_HELLO_API);
     throwIfNoSuccess(response);
     return HelloResponse.fromJson(response.data);
+  }
+
+  Future<UserResponse> getLoginUser() async {
+    Response response = await _dio.get(_LOGIN_USER_API);
+    throwIfNoSuccess(response);
+    return UserResponse.fromJson(getJson(response));
   }
 
   Future<SearchReposResponse> getSearchRepos(String searchType, String searchText) async {
@@ -62,7 +76,13 @@ class APIProvider {
       "q": searchText
     });
     throwIfNoSuccess(response);
-    return SearchReposResponse.fromJson(jsonDecode(response.data));
+    return SearchReposResponse.fromJson(getJson(response));
+  }
+
+  Future<GroupResponse> getUserGroups(int userId) async {
+    Response response = await _dio.get(sprintf(_USER_GROUPS_API, [userId]));
+    throwIfNoSuccess(response);
+    return GroupResponse.fromJson(getJson(response));
   }
 
   void throwIfNoSuccess(Response response) {
