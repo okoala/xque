@@ -20,26 +20,32 @@ class APIProvider {
   Dio _dio;
 
   APIProvider() {
-    Options dioOptions = Options()
-      ..baseUrl = APIProvider._baseUrl;
+    _dio = Dio();
 
-    _dio = Dio(dioOptions);
+    _dio.options.baseUrl = APIProvider._baseUrl;
 
     if (EnvType.LOCAL == Config.value.env || EnvType.TEST == Config.value.env) {
-      _dio.interceptor.request.onSend = (Options options) async {
-        DioLogger.onSend(TAG, options);
-        return options;
-      };
-
-      _dio.interceptor.response.onSuccess = (Response response) {
-        DioLogger.onSuccess(TAG, response);
-        return response;
-      };
-
-      _dio.interceptor.response.onError = (DioError error) {
-        DioLogger.onError(TAG, error);
-        return error;
-      };
+      _dio.interceptors.add(InterceptorsWrapper(
+        onRequest:(RequestOptions options){
+          // Do something before request is sent
+          DioLogger.onSend(TAG, options);
+          return options; //continue
+          // If you want to resolve the request with some custom data，
+          // you can return a `Response` object or return `dio.resolve(data)`.
+          // If you want to reject the request with a error message,
+          // you can return a `DioError` object or return `dio.reject(errMsg)`
+        },
+        onResponse:(Response response) {
+          // Do something with response data
+          DioLogger.onSuccess(TAG, response);
+          return response; // continue
+        },
+        onError: (DioError error) {
+          // Do something with response error
+          DioLogger.onError(TAG, error);
+          return error;//continue
+        }
+      ));
     }
   }
 
@@ -51,11 +57,10 @@ class APIProvider {
   }
 
   Future<SearchReposResponse> getSearchRepos(String searchType, String searchText) async {
-    _dio.options.data = {
+    Response response = await _dio.get(_SESRCH_REPOS_API, queryParameters: {
       "type": searchType,
       "q": searchText
-    };
-    Response response = await _dio.get(_SESRCH_REPOS_API);
+    });
     throwIfNoSuccess(response);
     return SearchReposResponse.fromJson(jsonDecode(response.data));
   }
