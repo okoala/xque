@@ -9,25 +9,41 @@ class Doc {
   int id;
   String slug;
   String description;
+  @JsonKey(name: 'user_id')
   int userId;
+  @JsonKey(name: 'book_id')
   int bookId;
   String format;
   int public;
   int status;
+  @JsonKey(name: 'likes_count')
   int likesCount;
+  @JsonKey(name: 'comments_count')
   int commentsCount;
+  @JsonKey(name: 'followers_count')
   int followersCount;
+  @JsonKey(name: 'following_count')
   int followingCount;
+  @JsonKey(name: 'content_updated_at')
   String contentUpdatedAt;
+  @JsonKey(name: 'created_at')
   String createdAt;
+  @JsonKey(name: 'updated_at')
   String updatedAt;
+  @JsonKey(name: 'published_at')
   String publishedAt;
+  @JsonKey(name: 'first_published_at')
   String firstPublishedAt;
+  @JsonKey(name: 'draft_version')
   int draftVersion;
+  @JsonKey(name: 'last_editor_id')
   int lastEditorId;
+  @JsonKey(name: 'word_count')
   int wordCount;
   String cover;
+  @JsonKey(name: 'custom_description')
   String customDescription;
+  @JsonKey(name: 'last_editor')
   User lastEditor;
   Book book;
 

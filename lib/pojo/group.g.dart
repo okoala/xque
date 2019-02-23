@@ -1,17 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'group.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-User _$UserFromJson(Map<String, dynamic> json) {
-  return User(
+Group _$GroupFromJson(Map<String, dynamic> json) {
+  return Group(
       json['id'] as int,
-      json['type'] as String,
-      json['space_id'] as int,
-      json['account_id'] as int,
       json['login'] as String,
       json['name'] as String,
       json['avatar_url'] as String,
@@ -20,18 +17,17 @@ User _$UserFromJson(Map<String, dynamic> json) {
       json['small_avatar_url'] as String,
       json['books_count'] as int,
       json['public_books_count'] as int,
-      json['followers_count'] as int,
-      json['following_count'] as int,
+      json['topics_count'] as int,
+      json['public_topics_count'] as int,
+      json['members_count'] as int,
+      json['public'] as int,
       json['description'] as String,
       json['created_at'] as String,
       json['updated_at'] as String);
 }
 
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+Map<String, dynamic> _$GroupToJson(Group instance) => <String, dynamic>{
       'id': instance.id,
-      'type': instance.type,
-      'space_id': instance.spaceId,
-      'account_id': instance.accountId,
       'login': instance.login,
       'name': instance.name,
       'avatar_url': instance.avatarUrl,
@@ -40,8 +36,10 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'small_avatar_url': instance.smallAvatarUrl,
       'books_count': instance.booksCount,
       'public_books_count': instance.publicBooksCount,
-      'followers_count': instance.followersCount,
-      'following_count': instance.followingCount,
+      'topics_count': instance.topicsCount,
+      'public_topics_count': instance.publicTopicsCount,
+      'members_count': instance.membersCount,
+      'public': instance.public,
       'description': instance.description,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt

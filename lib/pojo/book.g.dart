@@ -12,12 +12,12 @@ Book _$BookFromJson(Map<String, dynamic> json) {
     ..type = json['type'] as String
     ..slug = json['slug'] as String
     ..name = json['name'] as String
-    ..userId = json['userId'] as int
+    ..userId = json['user_id'] as int
     ..description = json['description'] as String
     ..public = json['public'] as int
-    ..contentUpdatedAt = json['contentUpdatedAt'] as String
-    ..createdAt = json['createdAt'] as String
-    ..updatedAt = json['updatedAt'] as String
+    ..contentUpdatedAt = json['content_updated_at'] as String
+    ..createdAt = json['created_at'] as String
+    ..updatedAt = json['updated_at'] as String
     ..namespace = json['namespace'] as String
     ..user = json['user'] == null
         ? null
@@ -29,12 +29,12 @@ Map<String, dynamic> _$BookToJson(Book instance) => <String, dynamic>{
       'type': instance.type,
       'slug': instance.slug,
       'name': instance.name,
-      'userId': instance.userId,
+      'user_id': instance.userId,
       'description': instance.description,
       'public': instance.public,
-      'contentUpdatedAt': instance.contentUpdatedAt,
-      'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
+      'content_updated_at': instance.contentUpdatedAt,
+      'created_at': instance.createdAt,
+      'updated_at': instance.updatedAt,
       'namespace': instance.namespace,
       'user': instance.user
     };

@@ -9,11 +9,15 @@ class Book {
   String type;
   String slug;
   String name;
+  @JsonKey(name: 'user_id')
   int userId;
   String description;
   int public;
+  @JsonKey(name: 'content_updated_at')
   String contentUpdatedAt;
+  @JsonKey(name: 'created_at')
   String createdAt;
+  @JsonKey(name: 'updated_at')
   String updatedAt;
   String namespace;
   User user;
