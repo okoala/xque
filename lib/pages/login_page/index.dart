@@ -86,7 +86,7 @@ class LoginPageState extends State<LoginPage> {
                               Expanded(
                                 child: CupertinoTextField(
                                   placeholder: '请输入 Token',
-                                  padding: EdgeInsets.only(top: 6.0, bottom: 6.0),
+                                  padding: EdgeInsets.only(top: 4.0, bottom: 6.0),
                                   style: TextStyle(fontWeight: FontWeight.w700, color: YQColor.grey1, fontSize: 18),
                                   decoration: BoxDecoration(
                                     border: Border.all(
