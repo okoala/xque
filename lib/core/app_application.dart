@@ -74,6 +74,6 @@ class AppApplication {
 
   void _initAPIRepository() {
     apiProvider = APIProvider(token);
-    apiRepository = APIRepository(apiProvider, dbRepository);
+    apiRepository = APIRepository(this, apiProvider, dbRepository);
   }
 }

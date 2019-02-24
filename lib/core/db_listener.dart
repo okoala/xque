@@ -13,6 +13,6 @@ class DBListener {
   }
 
   Future<void> _createDatabase(Database db, int version) async {
-    await db.execute('CREATE TABLE HomeFeed (id INTEGER PRIMARY KEY, _order INTEGER, title TEXT, subtitle TEXT, icon TEXT, isFiexed INTEGER, isUnread INTEGER)');
+    await db.execute('CREATE TABLE Group (id INTEGER PRIMARY KEY, login TEXT, name TEXT, avatarUrl TEXT, largeAvatarUrl TEXT, mediumAvatarUrl TEXT, smallAvatarUrl TEXT, booksCount INTEGER, publicBooksCount INTEGER, topicsCount INTEGER, publicTopicsCount INTEGER, membersCount INTEGER, public INTEGER, description TEXT, createdAt TEXT, updatedAt TEXT)');
   }
 }
