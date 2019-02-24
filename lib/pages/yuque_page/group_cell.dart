@@ -22,7 +22,7 @@ class GroupCell extends StatelessWidget {
           children: <Widget>[
             Container(
               color: Colors.white,
-              height: 72,
+              height: 74,
               padding: EdgeInsets.all(10.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,16 +35,18 @@ class GroupCell extends StatelessWidget {
                       child: this.iconUrl,
                     )
                   ),
-                  Column(                                    //单条消息记录，昵称和消息内容垂直排列
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(this.title, style: TextStyle(color: YQColor.grey2, fontSize: 18, fontWeight: FontWeight.w500)),
-                      Container(
-                        margin: EdgeInsets.only(top: 4.0),
-                        child: Text(this.doctitle, style: TextStyle(color: YQColor.grey4, fontSize: 16),),                    //消息文字
-                      ),
-                    ],
-                  ),
+                  Expanded(
+                    child: Column(                                    //单条消息记录，昵称和消息内容垂直排列
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(this.title, style: TextStyle(color: YQColor.grey2, fontSize: 18, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis),
+                        Container(
+                          margin: EdgeInsets.only(top: 4.0),
+                          child: Text(this.doctitle, style: TextStyle(color: YQColor.grey4, fontSize: 16), overflow: TextOverflow.ellipsis),                    //消息文字
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               )
             ),

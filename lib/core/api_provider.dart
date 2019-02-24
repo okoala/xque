@@ -18,7 +18,7 @@ class APIProvider {
   static const String _HELLO_API = '/hello';
   static const String _SESRCH_REPOS_API = '/search/repos';
   static const String _LOGIN_USER_API = '/user';
-  static const String _USER_GROUPS_API = '/users/userId=%d/groups';
+  static const String _USER_GROUPS_API = '/users/%d/groups';
 
   Dio _dio;
 
@@ -54,7 +54,7 @@ class APIProvider {
   }
 
   Map<String, dynamic> getJson(Response response) {
-    return jsonDecode(response.toString())["data"];
+    return jsonDecode(response.toString());
   }
 
   Future<HelloResponse> getHello(String token) async {

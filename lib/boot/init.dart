@@ -6,6 +6,7 @@ import 'package:yuque/config/config.dart';
 import 'package:yuque/core/app_application.dart';
 import 'package:yuque/core/app_component.dart';
 import 'package:yuque/pojo/user.dart';
+import 'package:yuque/pojo/response/user_response.dart';
 import 'package:yuque/services/token.dart';
 
 Future<void> init(Config config) async {
@@ -22,9 +23,8 @@ Future<void> init(Config config) async {
   if (token == null || token.isEmpty) {
     initRoute = "/login";
   } else {
-    final User user = (await application.apiProvider.getLoginUser()).data;
-
-    application.setUser(user);
+    final UserResponse userRes = await application.apiProvider.getLoginUser();
+    application.setUser(userRes.data);
   }
   runApp(AppComponent(application, initRoute));
 }
