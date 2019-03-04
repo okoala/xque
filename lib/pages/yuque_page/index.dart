@@ -73,17 +73,6 @@ class YuquePageState extends State<YuquePage> {
                     }
                   },
                 ),
-
-                // ListView(
-                //   children: [
-
-                //     // GroupCell(title: '我的消息', doctitle: '仙森邀请你来体验新APP',
-                //     // iconColor: YQColor.primary1,
-                //     // iconUrl: ClipOval(child:Image.asset('assets/images/notice.png'))),
-                //     // GroupCell(title: '订阅的消息', doctitle: '语雀: 深入浅出语雀编辑器',
-                //     // iconColor: YQColor.blue2, iconUrl: ClipOval(child: Image.asset('assets/images/notice.png', fit: BoxFit.cover,))),
-                //   ]
-                // )
               ),
             );
           }

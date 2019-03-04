@@ -8,16 +8,14 @@ import 'package:yuque/pojo/group.dart';
 
 class YuqueBloc {
   final AppApplication _application;
-  final _groupList =BehaviorSubject<List<Group>>();
+  final _groupList = BehaviorSubject<List<Group>>();
   final _isShowLoading = BehaviorSubject<bool>();
 
   CompositeSubscription _compositeSubscription = CompositeSubscription();
   Stream<bool> get isShowLoading => _isShowLoading.stream;
   Stream<List<Group>> get groupList => _groupList.stream;
 
-  YuqueBloc(this._application) {
-
-  }
+  YuqueBloc(this._application) {}
 
   void dispose() {
     _compositeSubscription.clear();
