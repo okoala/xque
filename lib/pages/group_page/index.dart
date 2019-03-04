@@ -16,6 +16,47 @@ class GroupPage extends StatefulWidget {
 }
 
 class GroupPageState extends State<GroupPage> {
+  Widget _buildBook() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+      decoration: BoxDecoration(
+        color: CupertinoColors.white,
+        borderRadius: BorderRadius.circular(4.0),
+      ),
+      child: Column(
+        children: <Widget>[
+          Center(
+            child: Container(
+              height: 40,
+              alignment: Alignment.centerLeft,
+              padding:EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(
+                color:YQColor.grey6,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(4.0), topRight: Radius.circular(4.0)),
+              ),
+              // padding: EdgeInsets.only(bottom: 10),
+              child: Text('NCA画师', style: TextStyle(fontSize: 16, color: YQColor.grey4),),
+            ),
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+            padding: EdgeInsets.only(bottom: 20),
+            decoration:BoxDecoration(
+              border: Border(bottom: BorderSide(width: 0.5, color: YQColor.grey7))
+            ),
+            child: Text('女孩子专属的幸福日子！在女儿节如何get少女的一天', style: TextStyle(fontSize: 16, color: YQColor.grey1, fontWeight: FontWeight.w400),)
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.all(20),
+            child: Text('沉迷于古风和仙侠的国际奖得主--钱舒', style: TextStyle(fontSize: 16, color: YQColor.grey1, fontWeight: FontWeight.w400),)
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -48,6 +89,14 @@ class GroupPageState extends State<GroupPage> {
                 SizedBox(height: 20,),
                 Container(
                   child: Text('知识创作与分享', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: YQColor.grey2),),
+                ),
+                SizedBox(height: 30,),
+                Column(
+                  children: <Widget>[
+                    _buildBook(),
+                    _buildBook(),
+                    _buildBook()
+                  ],
                 )
               ],
             )
