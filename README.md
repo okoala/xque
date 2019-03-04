@@ -21,4 +21,5 @@
 ### 删除过期的证书
 
 > cd ~/Library/MobileDevice/Provisioning\ Profiles
+
 > rm *.mobileprovision
