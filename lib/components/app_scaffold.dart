@@ -5,9 +5,10 @@ import 'package:yuque/config/config.dart';
 import 'package:yuque/config/theme.dart';
 
 class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
-  AppNavBar({ this.showLeading });
+  AppNavBar({ this.showLeading, this.title });
 
   final bool showLeading;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,8 @@ class AppNavBar extends StatelessWidget implements ObstructingPreferredSizeWidge
           style: BorderStyle.solid,
         ),
       ),
-      middle: Text(Config.yuque['name']),
+      middle: this.title != null ? Text(this.title) : null,
+      // automaticallyImplyLeading: false,
       leading: showLeading != null ? CupertinoButton(
         padding: EdgeInsets.zero,
         onPressed: () {

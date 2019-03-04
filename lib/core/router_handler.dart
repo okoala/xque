@@ -8,6 +8,7 @@ import 'package:yuque/pages/root_page/index.dart';
 import 'package:yuque/pages/login_page/index.dart';
 import 'package:yuque/pages/webview_page/index.dart';
 import 'package:yuque/pages/setting_page/index.dart';
+import 'package:yuque/pages/group_page/index.dart';
 import 'package:yuque/pages/search_page/index.dart';
 import 'package:yuque/pages/search_result_page/index.dart';
 import 'package:yuque/helpers/color_helpers.dart';
@@ -30,6 +31,10 @@ var meHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List
 
 var settingHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return SettingPage();
+});
+
+var groupHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return GroupPage();
 });
 
 var searchHandler = new Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {

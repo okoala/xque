@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:yuque/components/app_scaffold.dart';
 import 'package:yuque/core/app_provider.dart';
@@ -15,85 +16,44 @@ class GroupPage extends StatefulWidget {
 }
 
 class GroupPageState extends State<GroupPage> {
-  SearchBloc searchBloc;
-
-  @override
-  void dispose() {
-    super.dispose();
-    searchBloc.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    _init(context);
-
     return AppScaffold(
-      showNavigationBar: false,
-      body: Container(
-        margin: EdgeInsets.only(top: 20.0),
-        child: Row(
+      // showNavigationBar: false,
+      showLeading: true,
+      body: SingleChildScrollView(
+        child: Column(
           children: <Widget>[
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                    color: YQColor.grey7,
-                    borderRadius: BorderRadius.circular(4.0)),
-              child: Container(
-                height: 35.0,
-                alignment: Alignment.topLeft,
-                margin: EdgeInsets.only(left: 10.0),
-                padding: EdgeInsets.only(right: 5.0, left: 5.0),
-                decoration: BoxDecoration(
-                    color: CupertinoColors.white,
-                    borderRadius: BorderRadius.circular(4.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      child: Icon(CupertinoIcons.search, size: 20.0, color: YQColor.grey3)
+            SizedBox(height: 40,),
+            Column(
+              children: <Widget>[
+                Container(
+                  width: 70,
+                  height: 70,
+                  alignment: Alignment.topCenter,
+                  child: ClipOval(
+                    child: CachedNetworkImage(
+                      imageUrl: 'https://cdn.nlark.com/yuque/0/2019/png/84147/1547032500238-d93512f4-db23-442f-b4d8-1d46304f9673.png?x-oss-process=image/resize,m_fill,w_112,h_112/format,png',
+                      fadeOutDuration: new Duration(milliseconds: 300),
+                      fadeInDuration: new Duration(milliseconds: 300),
+                      fit: BoxFit.cover
                     ),
-                    Expanded(
-                      child: CupertinoTextField(
-                        autofocus: true,
-                        placeholder: '搜索',
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 0,
-                            color: CupertinoColors.white,
-                          ),
-                        ),
-                        onSubmitted: (value) {
-                          searchBloc.changeSearchText(value);
-                        },
-                      )
-                    )
-                  ],
+                  ),
                 ),
-              )
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  alignment: Alignment.topCenter,
+                  child: Text('语雀的天空', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: YQColor.grey1)),
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  child: Text('知识创作与分享', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: YQColor.grey2),),
+                )
+              ],
             )
-          ),
-          Container(
-            child: CupertinoButton(
-              padding: EdgeInsets.only(left: 10.0, right: 10.0),
-              child: Text(
-                '取消',
-                style: TextStyle(fontSize: 18, color: YQColor.blue1)
-              ),
-              onPressed: (){
-                AppProvider.getRouter(context).pop(context);
-              },
-            ),
-          ),
-        ],
-      ),
+          ]
+        ),
       ),
     );
-  }
-
-  void _init(BuildContext context){
-    if(null == searchBloc){
-      searchBloc = SearchBloc(AppProvider.getApplication(context));
-    }
   }
 }

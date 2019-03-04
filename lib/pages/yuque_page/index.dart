@@ -68,7 +68,10 @@ class YuquePageState extends State<YuquePage> {
                             fadeInDuration: new Duration(milliseconds: 300),
                             fit: BoxFit.cover
                           ),
-                        )
+                        ),
+                        onPressed: () {
+                          AppProvider.getRouter(context).navigateTo(context, '/group');
+                        },
                       );
                     }
                   },
