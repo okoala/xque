@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:yuque/components/app_scaffold.dart';
@@ -26,7 +27,7 @@ class GroupPageState extends State<GroupPage> {
       child: Column(
         children: <Widget>[
           Center(
-            child: Container(
+            child:Container(
               height: 40,
               alignment: Alignment.centerLeft,
               padding:EdgeInsets.only(left: 10),
@@ -34,8 +35,20 @@ class GroupPageState extends State<GroupPage> {
                 color:YQColor.grey6,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(4.0), topRight: Radius.circular(4.0)),
               ),
-              // padding: EdgeInsets.only(bottom: 10),
-              child: Text('NCA画师', style: TextStyle(fontSize: 16, color: YQColor.grey4),),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.only(right: 5.0),
+                    child: Icon(CupertinoIcons.book)
+                  ),
+                  Expanded(
+                    child: Container(
+                      // padding: EdgeInsets.only(bottom: 10),
+                      child: Text('语雀使用帮助', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: YQColor.grey1),),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Container(
@@ -45,12 +58,30 @@ class GroupPageState extends State<GroupPage> {
             decoration:BoxDecoration(
               border: Border(bottom: BorderSide(width: 0.5, color: YQColor.grey7))
             ),
-            child: Text('女孩子专属的幸福日子！在女儿节如何get少女的一天', style: TextStyle(fontSize: 16, color: YQColor.grey1, fontWeight: FontWeight.w400),)
+            child: Text('深入浅出语雀编辑器', style: TextStyle(fontSize: 16, color: YQColor.grey1, fontWeight: FontWeight.w400),)
           ),
           Container(
             alignment: Alignment.topLeft,
-            margin: EdgeInsets.all(20),
-            child: Text('沉迷于古风和仙侠的国际奖得主--钱舒', style: TextStyle(fontSize: 16, color: YQColor.grey1, fontWeight: FontWeight.w400),)
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+            padding: EdgeInsets.only(bottom: 20),
+            decoration:BoxDecoration(
+              border: Border(bottom: BorderSide(width: 0.5, color: YQColor.grey7))
+            ),
+            child: Text('导出文档', style: TextStyle(fontSize: 16, color: YQColor.grey1, fontWeight: FontWeight.w400),)
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+            padding: EdgeInsets.only(bottom: 20),
+            decoration:BoxDecoration(
+              border: Border(bottom: BorderSide(width: 0.5, color: YQColor.grey7))
+            ),
+            child: Text('Kitchen 更新日志', style: TextStyle(fontSize: 16, color: YQColor.grey1, fontWeight: FontWeight.w400),)
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+            child: Text('查看目录', style: TextStyle(fontSize: 15, color: YQColor.blue1, fontWeight: FontWeight.w400),)
           )
         ],
       ),
@@ -94,8 +125,6 @@ class GroupPageState extends State<GroupPage> {
                 Column(
                   children: <Widget>[
                     _buildBook(),
-                    _buildBook(),
-                    _buildBook()
                   ],
                 )
               ],
