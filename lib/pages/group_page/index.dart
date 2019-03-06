@@ -80,7 +80,7 @@ class GroupPageState extends State<GroupPage> {
           ),
           Container(
             alignment: Alignment.topLeft,
-            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+            margin: EdgeInsets.fromLTRB(20, 15, 20, 15),
             child: Text('查看目录', style: TextStyle(fontSize: 15, color: YQColor.blue1, fontWeight: FontWeight.w400),)
           )
         ],
