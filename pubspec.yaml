@@ -33,6 +33,7 @@ dependencies:
   rxdart: ^0.20.0
   rect_getter: 0.0.1
   flutter_stetho: ^0.2.2
+  yaml: ^2.1.15
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
