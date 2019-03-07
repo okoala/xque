@@ -47,6 +47,7 @@ class YuquePageState extends State<YuquePage> {
             List<Group> _groupList = snapshot.data;
 
             return AppScaffold(
+              title: '语雀',
               body: Container(
                 child: ListView.builder(
                   itemCount: _groupList.length + 1,

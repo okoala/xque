@@ -17,6 +17,7 @@ class MePageState extends State<MePage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
+      title: '我的',
       body: Container(
         child: Menu(
           menus: Config.meMenus,
